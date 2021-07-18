@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import com.gavima_kanido.handler.LoginHandler;
+import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,44 +51,31 @@ public class LoginController {
 
         if (event.getSource() == btnSignin) {
 
-            Stage stage = (Stage) btnSignin.getScene().getWindow();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));   
-            loader.setController(new DashboardController());
-            Scene scene = new Scene((Parent) loader.load());
-            stage.setScene(scene);
-            
 
 
 
-            // if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()) {
                 
-            //     setLabelInfo(Color.TOMATO, "Empty credentials");
+                setLabelInfo(Color.TOMATO, "Empty credentials");
 
-            // } else {
-            //     setLabelInfo(Color.GREEN, "Checking credentials, please wait...");
-            //     User user = LoginHandler.logIn(txtUsername.getText(), txtPassword.getText());
+            } else {
+                setLabelInfo(Color.GREEN, "Checking credentials, please wait...");
+                User user = LoginHandler.logIn(txtUsername.getText(), txtPassword.getText());
 
-            //     if (user != null) {
-            //         setLabelInfo(Color.GREEN, "Log In successful, redirecting...");
-            //         System.out.println("Login successful");
-            //         // try {
+                if (user != null) {
+                    setLabelInfo(Color.GREEN, "Log In successful, redirecting...");
+                    System.out.println("Login successful");
+                    try {
+                        StageHandler.setUser(user);
+                        StageHandler.changeToDashboard((Stage) btnSignin.getScene().getWindow(), getClass());   
+                    } catch (IOException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+                } else {
+                    setLabelInfo(Color.TOMATO, "Enter Correct Email/Password");
+                }
 
-            //         //     Node node = (Node) event.getSource();
-            //         //     Stage stage = (Stage) node.getScene().getWindow();
-            //         //     stage.close();
-            //         //     Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/OnBoard.fxml")));
-            //         //     stage.setScene(scene);
-            //         //     stage.show();
-    
-            //         // } catch (IOException ex) {
-            //         //     System.err.println(ex.getMessage());
-            //         // }
-            //     } else {
-            //         setLabelInfo(Color.TOMATO, "Enter Correct Email/Password");
-            //     }
-
-            // }
+            }
 
 
         }

@@ -3,6 +3,9 @@ package com.gavima_kanido.controller;
 
 import java.io.IOException;
 
+import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.models.User;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +23,12 @@ import javafx.stage.Stage;
 
 public class DashboardController {
 
+    private User user;
+
+    public DashboardController(User user) {
+        this.user = user;
+    }
+
     @FXML
     private Button btnTime;
 
@@ -36,12 +45,7 @@ public class DashboardController {
     public void handleButtonAction(MouseEvent event) throws IOException {
         System.out.println("Lol");
         if (event.getSource() == btnTime) {
-            Stage stage = (Stage) btnTime.getScene().getWindow();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));   
-            loader.setController(new LoginController());
-            Scene scene = new Scene((Parent) loader.load());
-            stage.setScene(scene);
+            StageHandler.changeToTimeTracker((Stage) btnTime.getScene().getWindow(), getClass());
         }
 
     }

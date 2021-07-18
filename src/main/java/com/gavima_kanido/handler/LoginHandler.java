@@ -18,7 +18,6 @@ public class LoginHandler {
         HashUtil hashUtil = new HashUtil();
 
         try {
-            System.out.println(hashUtil.hash(password));
             pwdToken = DatabaseOperationUtil.getPasswordToken(email);
             
             if ( pwdToken != null && hashUtil.authenticate(password, pwdToken)) {
