@@ -41,7 +41,7 @@ public class DatabaseOperationUtil {
 
     }
 
-        public static String getUserRef(String email, String pwdToken) throws SQLException {
+    public static String getUserRef(String email, String pwdToken) throws SQLException {
         String userRef = null;
         Connection conn = null;
         PreparedStatement ps = null;

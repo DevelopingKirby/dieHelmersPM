@@ -5,9 +5,9 @@ import java.sql.*;
 public class ConnectionUtil {
     
     public static Connection getConnection() {
-        final String CONNSTRING = "jdbc:mysql://sql11.freesqldatabase.com/sql11422052";
-        final String USER = "sql11422052";
-        final String PASSWORD = "Lp2ZFk3sHr";
+        final String CONNSTRING = "jdbc:mysql://sql11.freesqldatabase.com/sql11426166";
+        final String USER = "sql11426166";
+        final String PASSWORD = "6cergw8Izd";
         try {
             Connection conn = DriverManager.getConnection(CONNSTRING, USER, PASSWORD);            
             return conn;
