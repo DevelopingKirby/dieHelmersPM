@@ -28,7 +28,7 @@ public class StageHandler {
         Stage stage = oldstage;
 
         FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTracker.fxml"));   
-        loader.setController(new TimeTrackerController());
+        loader.setController(new TimeTrackerController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
@@ -38,7 +38,7 @@ public class StageHandler {
         Stage stage = oldstage;
 
         FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Holiday.fxml"));   
-        loader.setController(new HolidayController());
+        loader.setController(new HolidayController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
@@ -48,7 +48,17 @@ public class StageHandler {
         Stage stage = oldstage;
 
         FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Teams.fxml"));   
-        loader.setController(new TeamsController());
+        loader.setController(new TeamsController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToProjects(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Projects.fxml"));   
+        loader.setController(new ProjectsController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }

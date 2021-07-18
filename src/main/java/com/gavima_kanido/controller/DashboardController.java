@@ -43,9 +43,17 @@ public class DashboardController {
     
     @FXML
     public void handleButtonAction(MouseEvent event) throws IOException {
-        System.out.println("Lol");
         if (event.getSource() == btnTime) {
             StageHandler.changeToTimeTracker((Stage) btnTime.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnProjects) {
+            StageHandler.changeToProjects((Stage) btnProjects.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnHoli) {
+            StageHandler.changeToHoliday((Stage) btnHoli.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnTeam) {
+            StageHandler.changeToTeams((Stage) btnTeam.getScene().getWindow(), getClass());
         }
 
     }

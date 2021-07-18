@@ -64,17 +64,17 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button fx:id="btnProjects" layoutX="89.0" layoutY="68.0" mnemonicParsing="false" text="Projects" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                        <Button fx:id="btnProjects" layoutX="89.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Projects" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="btnHoli" layoutX="150.0" layoutY="47.0" mnemonicParsing="false" text="Holiday" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                        <Button fx:id="btnHoli" layoutX="150.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Holiday" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="btnTeam" layoutX="63.0" layoutY="80.0" mnemonicParsing="false" text="Teams" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                        <Button fx:id="btnTeam" layoutX="63.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Teams" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
                      </children>
                   </AnchorPane>
                </children>
