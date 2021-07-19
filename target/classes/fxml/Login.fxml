@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="503.0" maxWidth="854.0" minHeight="503.0" minWidth="854.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="503.0" maxWidth="854.0" minHeight="503.0" minWidth="854.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #203864;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -33,7 +33,7 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="-3.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
+                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="-3.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" styleClass="txtField" />
             </children>
         </Pane>
         <Label alignment="CENTER" layoutX="394.0" layoutY="466.0" prefHeight="23.0" prefWidth="184.0" text="Design by Helmers Corp. GmbH" textFill="#5b5a5a" AnchorPane.bottomAnchor="14.0">
