@@ -30,7 +30,7 @@
                      <children>
                         <ImageView fx:id="personData" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
-                              <Image url="@../img/outline_info_white_24dp.png" />
+                              <Image url="@../img/outline_logout_white_24dp" />
                            </image>
                            <HBox.margin>
                               <Insets right="20.0" />
@@ -45,41 +45,48 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="37.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+      <GridPane layoutX="-3.0" layoutY="30.0" prefHeight="372.0" prefWidth="607.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="391.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="216.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <GridPane prefHeight="370.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0">
+            <GridPane>
               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="158.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.0" minWidth="10.0" prefWidth="215.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="186.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="186.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="btnTime" layoutX="82.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Time Tracker" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <children>
-                        <Button fx:id="btnProjects" layoutX="89.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Projects" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <children>
-                        <Button fx:id="btnHoli" layoutX="150.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Holiday" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Button fx:id="btnTeam" layoutX="63.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" text="Teams" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
-                     </children>
-                  </AnchorPane>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" styleClass="btnMenu" text="Time &amp; Track" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" styleClass="btnMenuProjects" text="Projects" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" styleClass="btnMenuHoliday" text="Holiday" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0" styleClass="btnMenu" text="Teams" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>
-      </AnchorPane>
+      </GridPane>
    </children>
 </AnchorPane>
