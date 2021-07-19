@@ -42,9 +42,9 @@
                           </rowConstraints>
                            <children>
                               <Label text="user_name" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnMyProjects2" text="My Projects" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnTT" text="Time &amp; Track" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnDashboard2" text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Hyperlink id="btnMyProjects2" fx:id="btnMyProjects2" text="My Projects" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Hyperlink id="btnTT" fx:id="btnTT" text="Time &amp; Track" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Hyperlink id="btnDashboard2" fx:id="btnDashboard2" text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                         <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
@@ -128,8 +128,8 @@
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My hourly rate:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="my_budget" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <Label text="h_rate" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Button id="btnManagersView" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Button id="btnRedirectTeams" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Button id="btnManagersView" fx:id="btnManagersView" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                        <Button id="btnRedirectTeams" fx:id="btnRedirectTeams" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>
