@@ -40,9 +40,9 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Hyperlink text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Hyperlink id="btnDashboard" text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Label text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink text="My Projects" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Hyperlink id="btnMyProjects" text="My Projects" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                         <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
@@ -96,8 +96,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="month" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
-                        <Label text="year" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                        <Label id="curr_month" text="month" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                        <Label id="curr_year" text="year" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Time &amp; Track: Overview" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -123,7 +123,7 @@
                     </rowConstraints>
                      <children>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SUM:" GridPane.halignment="CENTER" />
-                        <Label text="h_sum" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Label id="h_sum" text="h_sum" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                      </children>
                   </GridPane>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
@@ -136,7 +136,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="overh_sum" textFill="WHITE" GridPane.columnIndex="1" />
+                        <Label id="overh_sum" text="overh_sum" textFill="WHITE" GridPane.columnIndex="1" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Overhours:" />
                      </children>
                   </GridPane>
@@ -152,7 +152,7 @@
                   <Label text="h_spent" textFill="#fcf3f3" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
                   <Label text="h_spent" textFill="#fcf3f3" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
                   <Label text="h_spent" textFill="#fcf3f3" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button id="btnTTExport" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView fx:id="more" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
