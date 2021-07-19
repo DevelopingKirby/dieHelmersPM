@@ -106,15 +106,6 @@
 
 }
 
-.topMenu {
-    -fx-background-color: #595959;
-}
-
-.table-view .column-header,
-.table-view .column-header-background .filler {
-    -fx-cell-size : 20;
-    -fx-background-color:   #BDD7EE;
-}
 .table-view .column-header .label{
 
    -fx-text-fill: white;
