@@ -17,7 +17,7 @@ public class StageHandler {
     public static void changeToDashboard(Stage oldstage, Class actual_class) throws IOException {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Dashboard.fxml"));   
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Dashboard.fxml"));
         loader.setController(new DashboardController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
@@ -27,7 +27,7 @@ public class StageHandler {
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTracker.fxml"));   
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TT_Overview.fxml"));   
         loader.setController(new TimeTrackerController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
@@ -57,7 +57,7 @@ public class StageHandler {
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Projects.fxml"));   
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TT_Projects.fxml"));   
         loader.setController(new ProjectsController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
