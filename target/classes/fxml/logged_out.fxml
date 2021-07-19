@@ -29,9 +29,9 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="367.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fx:id="personData" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="btnLogin" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
-                              <Image url="@../img/outline_logout_white_24dp.png" />
+                              <Image url="@../img/outline_login_white_24dp.png" />
                            </image>
                            <HBox.margin>
                               <Insets right="20.0" />

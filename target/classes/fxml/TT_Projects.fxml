@@ -46,7 +46,7 @@
                               <Hyperlink text="T&amp;T Overview" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
-                        <ImageView fx:id="personData" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/outline_logout_white_24dp.png" />
                            </image>
@@ -97,7 +97,7 @@
                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="180.0" promptText="Search new projects..." styleClass="txtField" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                   <Button mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <graphic>
-                        <ImageView fx:id="personData1" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="play_project_1" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/play_icon.png" />
                            </image>
@@ -105,7 +105,7 @@
                      </graphic></Button>
                   <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #404040; -fx-margin: 3px;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData1421" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="project1_details" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/more_no_circle.png" />
                            </image>
@@ -113,7 +113,7 @@
                      </graphic></Button>
                   <Button layoutX="169.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
                      <graphic>
-                        <ImageView fx:id="personData11" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="play_project_2" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/play_icon.png" />
                            </image>
@@ -122,7 +122,7 @@
                   </Button>
                   <Button layoutX="169.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <graphic>
-                        <ImageView fx:id="personData12" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="play_project_3" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/play_icon.png" />
                            </image>
@@ -131,7 +131,7 @@
                   </Button>
                   <Button layoutX="169.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="7">
                      <graphic>
-                        <ImageView fx:id="personData13" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="play_project_4" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/play_icon.png" />
                            </image>
@@ -140,7 +140,7 @@
                   </Button>
                   <Button layoutX="169.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData14" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="stop_project_1" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/stop_icon.png" />
                            </image>
@@ -149,7 +149,7 @@
                   </Button>
                   <Button layoutX="247.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData141" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="stop_project_2" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/stop_icon.png" />
                            </image>
@@ -158,7 +158,7 @@
                   </Button>
                   <Button layoutX="247.0" layoutY="132.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData142" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="stop_project_3" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/stop_icon.png" />
                            </image>
@@ -167,7 +167,7 @@
                   </Button>
                   <Button layoutX="247.0" layoutY="240.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="0.0" style="-fx-background-color: #404040; -fx-margin: 3px;" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData1411" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="stop_project_4" accessibleRole="BUTTON" fitHeight="60.0" fitWidth="35.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/stop_icon.png" />
                            </image>
@@ -175,7 +175,7 @@
                      </graphic></Button>
                   <Button layoutX="325.0" layoutY="145.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #404040; -fx-margin: 3px;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData14211" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="project2_details" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/more_no_circle.png" />
                            </image>
@@ -184,7 +184,7 @@
                   </Button>
                   <Button layoutX="169.0" layoutY="199.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #404040; -fx-margin: 3px;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData142111" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="project3_details" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/more_no_circle.png" />
                            </image>
@@ -193,7 +193,7 @@
                   </Button>
                   <Button layoutX="169.0" layoutY="250.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #404040; -fx-margin: 3px;" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                      <graphic>
-                        <ImageView fx:id="personData1421111" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="project4_details" accessibleRole="BUTTON" fitHeight="5.0" fitWidth="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../img/more_no_circle.png" />
                            </image>
