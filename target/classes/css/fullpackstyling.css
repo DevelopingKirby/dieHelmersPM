@@ -49,6 +49,15 @@
     -fx-background-radius: 15px;
 }
 
+.btnBlue {
+    -fx-background-color : #2F5597;
+    -fx-text-fill:  #ffffff;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius : 15px;
+    -fx-background-radius: 15px;
+}
+
 .btnMenu {
     -fx-background-color : #2E75B6;
     -fx-margin : 10px;
@@ -95,6 +104,10 @@
     -fx-border-radius : 15px;
     -fx-background-radius: 15px;
 
+}
+
+.topMenu {
+    -fx-background-color: #595959;
 }
 
 .table-view .column-header,
