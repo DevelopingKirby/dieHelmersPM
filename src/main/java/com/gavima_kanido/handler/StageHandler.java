@@ -27,8 +27,8 @@ public class StageHandler {
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TT_Overview.fxml"));   
-        loader.setController(new TimeTrackerController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerOverview.fxml"));   
+        loader.setController(new TimeTrackerOverviewController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
@@ -57,8 +57,8 @@ public class StageHandler {
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TT_Projects.fxml"));   
-        loader.setController(new ProjectsController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerProjects.fxml"));   
+        loader.setController(new TimeTrackerProjectsController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
