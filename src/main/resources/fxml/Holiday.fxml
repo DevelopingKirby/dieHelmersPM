@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="color: #FFFFFF#FFFFFF;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="color:#ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #0C39FF #0C39FF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -24,9 +24,9 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="367.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fx:id="personData" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
-                              <Image url="@../img/outline_info_white_24dp.png" />
+                              <Image url="@../img/outline_logout_white_24dp.png" />
                            </image>
                            <HBox.margin>
                               <Insets right="20.0" />
