@@ -88,7 +88,7 @@
 }
 
 .btnMenuHoliday:hover {
-    -fx-background-color : #2E75B6 ;
+    -fx-background-color : #2F5597 ;
 }
 
 .btnMenuProjects {
@@ -102,7 +102,7 @@
 }
 
 .btnMenuProjects:hover {
-    -fx-background-color : #2E75B6;
+    -fx-background-color : #2F5597;
 }
 
 .play {
