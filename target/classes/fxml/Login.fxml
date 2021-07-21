@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="503.0" maxWidth="854.0" minHeight="503.0" minWidth="854.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="503.0" maxWidth="854.0" minHeight="503.0" minWidth="854.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #404040;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #203864;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Label alignment="CENTER" layoutX="105.0" layoutY="219.0" prefHeight="23.0" prefWidth="173.0" text="Gavima Kanido" textFill="WHITE">
                     <font>
@@ -26,14 +26,14 @@
         </AnchorPane>
         <Pane layoutX="466.0" layoutY="172.0" prefHeight="160.0" prefWidth="283.0" AnchorPane.bottomAnchor="171.0" AnchorPane.topAnchor="172.0">
             <children>
-                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" />
+                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" styleClass="txtField" />
                 <Button fx:id="btnSignin" layoutX="7.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="275.0" text="Sign in" />
                 <Label fx:id="lblInfo" alignment="CENTER" layoutX="8.0" layoutY="98.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
                     <font>
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="-3.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
+                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="-3.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" styleClass="txtField" />
             </children>
         </Pane>
         <Label alignment="CENTER" layoutX="394.0" layoutY="466.0" prefHeight="23.0" prefWidth="184.0" text="Design by Helmers Corp. GmbH" textFill="#5b5a5a" AnchorPane.bottomAnchor="14.0">

@@ -1,43 +1,128 @@
 .button
 {
--fx-background-color : #FFF;
--fx-border-color: #355ECE;
--fx-text-fill:  #0C3988;
+-fx-background-color :none;
+-fx-text-fill:  #ffffff;
+-fx-border-color: #595959;
+-fx-border-width : 2px;
+-fx-border-radius : 15px;
+-fx-background-radius: 15px;
+
 }
 .button:hover
 {
--fx-background-color : #355ECE ;
--fx-text-fill:  #FFF;
+-fx-background-color : #2E75B6 ;
+-fx-text-fill:  #ffffff;
 }
 .button:pressed
 {
--fx-background-color : #0C39FF ;
--fx-text-fill: #FFF;
+-fx-background-color : #203864 ;
+-fx-text-fill: #ffffff;
 }
 
 .button2
 {
--fx-background-color :  #0C39FF;
--fx-border-color: #FFF;
--fx-text-fill:  #FFF;
+-fx-background-color :  #203864;
+-fx-text-fill:  #ffffff;
+-fx-border-color: #595959;
+-fx-border-width : 2px;
+-fx-border-radius : 15px;
+-fx-background-radius: 15px;
+
 }
 .button2:hover
 {
 -fx-background-color : #0C3988 ;
--fx-text-fill:   #FFF;
+-fx-text-fill:   #ffffff;
 }
 .button2:pressed
 {
 -fx-background-color : #0C3400 ;
--fx-text-fill: #FFF;
+-fx-text-fill: #ffffff;
 }
 
-
-.table-view .column-header,
-.table-view .column-header-background .filler {
-    -fx-cell-size : 20;
-    -fx-background-color:   #2D75E8;
+.button#btnSignin {
+    -fx-background-color : #404040;
+    -fx-text-fill:  #BDD7EE;
+    -fx-border-color: #BDD7EE;
+    -fx-border-width : 2px;
+    -fx-border-radius : 15px;
+    -fx-background-radius: 15px;
 }
+
+.button#btnSignin:hover {
+    -fx-background-color : #BDD7EE;
+    -fx-text-fill:  #404040;
+}
+
+.btnBlue {
+    -fx-background-color : #2F5597;
+    -fx-text-fill:  #ffffff;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius : 15px;
+    -fx-background-radius: 15px;
+}
+
+.btnMenu {
+    -fx-background-color : #2E75B6;
+    -fx-margin : 10px;
+    -fx-text-fill:  #ffffff;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius : 0px;
+    -fx-background-radius: 0px;
+}
+
+.btnMenu:hover {
+    -fx-background-color : #2F5597;
+}
+
+.btnMenuHoliday {
+    -fx-background-color : #a5cef3;
+    -fx-margin : 10px;
+    -fx-text-fill:  #ffffff;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius : 0px;
+    -fx-background-radius: 0px;
+}
+
+.btnMenuHoliday:hover {
+    -fx-background-color : #2E75B6 ;
+}
+
+.btnMenuProjects {
+    -fx-background-color : #203864;
+    -fx-margin : 10px;
+    -fx-text-fill:  #ffffff;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius : 0px;
+    -fx-background-radius: 0px;
+}
+
+.btnMenuProjects:hover {
+    -fx-background-color : #2E75B6;
+}
+
+.play {
+    -fx-background-color :none;
+    -fx-border-color: none;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
+
+}
+
+.txtField {
+    -fx-background-color : #ffffff;
+    -fx-text-fill:  #404040;
+    -fx-border-width : 1px;
+    -fx-border-radius : 15px;
+    -fx-background-radius: 15px;
+
+}
+
 .table-view .column-header .label{
 
    -fx-text-fill: white;
@@ -71,7 +156,7 @@
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
 	-fx-background-color: transparent;
-	-fx-border-color:derive(  #2D75E8,80%);
+	-fx-border-color:derive(  #BDD7EE,80%);
 	-fx-background-radius: 2em;
 	-fx-border-radius:2em;
 }
@@ -81,7 +166,7 @@
 
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color:derive( #2D75E8,90%);
+    -fx-background-color:derive( #BDD7EE,90%);
 	-fx-background-insets: 2, 0, 0;
 	-fx-background-radius: 2em;
 
