@@ -123,6 +123,20 @@
 
 }
 
+.slider {
+    -fx-background-color: #404040;
+    -fx-position: relative;
+    -fx-opacity: 0;
+    -fx-border-width: 0px;
+    -fx-border-radius: none;
+    -fx-background-radius: none;
+}
+
+.slider:hover{
+    -fx-opacity: 1;
+}
+
+
 .table-view .column-header .label{
 
    -fx-text-fill: white;
