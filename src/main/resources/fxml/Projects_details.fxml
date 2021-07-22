@@ -64,7 +64,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="37.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+      <AnchorPane layoutY="37.0" prefWidth="600.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
          <children>
             <GridPane layoutX="-5.0" layoutY="-8.0" prefHeight="380.0" prefWidth="608.0" style="-fx-background-color: #404040;">
               <columnConstraints>
@@ -73,8 +73,8 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.0" minWidth="10.0" prefWidth="21.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="235.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="126.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="254.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <GridPane GridPane.columnIndex="1">
@@ -104,32 +104,33 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="36.0" minHeight="7.0" prefHeight="25.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:" GridPane.rowIndex="1" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget spent:" GridPane.rowIndex="2" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="In Time:" GridPane.rowIndex="3" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="In Budget:" GridPane.rowIndex="4" />
-                        <Label text="customer_name" textFill="WHITE" GridPane.columnIndex="1" />
-                        <Label text="budget" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="budget_spent" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="time_light" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="budget_light" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Managers view:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My Budget:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My hourly rate:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label text="my_budget" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Label text="h_rate" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Button id="btnManagersView" fx:id="btnManagersView" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                        <Button id="btnRedirectTeams" fx:id="btnRedirectTeams" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget spent:" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="In Time:" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="In Budget:" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                        <Label text="customer_name" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+                        <Label text="budget" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="budget_spent" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label text="time_light" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Label text="budget_light" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Managers view:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My Budget:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My hourly rate:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label text="my_budget" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="h_rate" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Button id="btnManagersView" fx:id="btn_managers_view" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                        <Button id="btnRedirectTeams" fx:id="btn_redirect_teams" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Button id="btnManagersView" fx:id="btn_create_project" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Create Project" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
                      </children>
                   </GridPane>
                </children>
