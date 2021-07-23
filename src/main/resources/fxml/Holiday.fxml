@@ -42,10 +42,10 @@
                           </rowConstraints>
                            <children>
                               <Label text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLogout" mnemonicParsing="false" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
@@ -130,7 +130,7 @@
                   </Pane>
                   <Pane fx:id="pane1" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="1">
                      <children>
-                        <Label fx:id="int_day1" layoutX="4.0" layoutY="21.0" text="int_day" />
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
                      </children>
                   </Pane>
                   <Pane fx:id="pane2" layoutX="10.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
