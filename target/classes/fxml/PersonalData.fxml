@@ -40,10 +40,10 @@
                           </rowConstraints>
                            <children>
                               <Label text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLogout" mnemonicParsing="false" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
@@ -145,7 +145,7 @@
                   <Label text="user_birthday" textFill="WHITE" GridPane.rowIndex="3" />
                   <Label layoutX="10.0" layoutY="100.0" text="user_city_of_birth" textFill="WHITE" GridPane.rowIndex="5" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="City of Birth:" GridPane.rowIndex="4" />
-                  <Button id="btnRedirectTeams" fx:id="btnRedirectTeams" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                  <Button id="btnRedirectTeams" fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
          </children>

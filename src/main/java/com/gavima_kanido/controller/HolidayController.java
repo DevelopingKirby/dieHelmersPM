@@ -27,6 +27,12 @@ import javafx.scene.layout.Pane;
 
 public class HolidayController {
 
+    private User user;
+
+    public HolidayController(User user) {
+        this.user = user;
+    }
+
     @FXML
     private Pane pane1;
 
@@ -139,9 +145,4 @@ public class HolidayController {
         }
     }
 
-    private User user;
-
-    public HolidayController(User user) {
-        this.user = user;
-    }
 }
