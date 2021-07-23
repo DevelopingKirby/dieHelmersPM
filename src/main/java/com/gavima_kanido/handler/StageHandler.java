@@ -63,6 +63,26 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
+    public static void changeToPersonalData(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/PersonalData.fxml"));   
+        loader.setController(new PersonalDataController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToLoggedOut(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/LoggedOut.fxml"));   
+        loader.setController(new LoggedOutController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
     public static void setUser(User user)
     {
         stageUser = user;

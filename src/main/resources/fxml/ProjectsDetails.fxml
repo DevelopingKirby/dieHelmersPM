@@ -46,9 +46,9 @@
                               <Button fx:id="topmenu_dashboard1" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" styleClass="btnTopMenu" text="Time &amp; Track" textFill="WHITE" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <Button mnemonicParsing="false" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" mnemonicParsing="false" styleClass="btnTopMenu">
                            <graphic>
-                              <ImageView fx:id="btnLogout1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                              <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
                                     <Image url="@../img/outline_logout_white_24dp.png" />
                                  </image>
