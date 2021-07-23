@@ -36,17 +36,18 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="146.0" text="Dashboard" GridPane.columnIndex="1" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
-                           <image>
-                              <Image url="@../img/outline_logout_white_24dp.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <Button mnemonicParsing="false" styleClass="btnTopMenu">
+                           <graphic>
+                              <ImageView fx:id="btnLogout1" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                                 <image>
+                                    <Image url="@../img/outline_logout_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
