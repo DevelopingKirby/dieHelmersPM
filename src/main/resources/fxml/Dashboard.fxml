@@ -33,7 +33,7 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button fx:id="btnLogout" mnemonicParsing="false" styleClass="btnTopMenu" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -133,7 +133,7 @@
                               <Label text="user_position" textFill="#9e9e9e" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <Label text="user_email" textFill="#9e9e9e" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                               <Label text="user_phone" textFill="#9e9e9e" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                              <Button id="btnTTExport" fx:id="btnPersonalData" mnemonicParsing="false" prefHeight="28.0" prefWidth="54.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                              <Button id="btnTTExport" fx:id="btnPersonalData" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="28.0" prefWidth="54.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                  <graphic>
                                     <ImageView accessibleRole="BUTTON" fitHeight="5.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                        <image>
