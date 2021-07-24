@@ -4,10 +4,10 @@ import com.gavima_kanido.models.User;
 
 public class LoggedOutController {
     
-    private User user
+    private User user;
 
     public LoggedOutController(User stageUser) {
-        this.user = stageUser
+        this.user = stageUser;
     }
 
 }
