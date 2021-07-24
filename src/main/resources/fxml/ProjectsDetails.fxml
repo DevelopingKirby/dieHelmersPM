@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -42,19 +41,20 @@
                           </rowConstraints>
                            <children>
                               <Label text="user_name" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnMyProjects2" fx:id="btnMyProjects2" text="My Projects" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnTT" fx:id="btnTT" text="Time &amp; Track" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Hyperlink id="btnDashboard2" fx:id="btnDashboard2" text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Button fx:id="topmenu_trackprojects" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="107.0" styleClass="btnTopMenu" text="Track Projects" textFill="WHITE" GridPane.columnIndex="2" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="105.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
+                              <Button fx:id="topmenu_overview" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="105.0" styleClass="btnTopMenu" text="Overview" textFill="WHITE" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <ImageView fx:id="btnLogout" accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
-                           <image>
-                              <Image url="@../img/outline_logout_white_24dp.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
+                           <graphic>
+                              <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
+                                 <image>
+                                    <Image url="@../img/outline_logout_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>
@@ -86,7 +86,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="project_name" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                        <Label text="project_name" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets bottom="10.0" right="10.0" top="10.0" />
                            </GridPane.margin></Label>
@@ -94,6 +94,11 @@
                            <GridPane.margin>
                               <Insets bottom="10.0" right="10.0" top="10.0" />
                            </GridPane.margin></Label>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Details" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                           <GridPane.margin>
+                              <Insets top="10.0" />
+                           </GridPane.margin>
+                        </Text>
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -128,9 +133,8 @@
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="My hourly rate:" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                         <Label text="my_budget" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                         <Label text="h_rate" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <Button id="btnManagersView" fx:id="btn_managers_view" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-                        <Button id="btnRedirectTeams" fx:id="btn_redirect_teams" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-                        <Button id="btnManagersView" fx:id="btn_create_project" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Create Project" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                        <Button id="btnManagersView" fx:id="btn_managers_view" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="136.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                        <Button fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
                      </children>
                   </GridPane>
                </children>

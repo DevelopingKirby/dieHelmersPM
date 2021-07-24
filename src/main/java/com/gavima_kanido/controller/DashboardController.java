@@ -30,7 +30,7 @@ public class DashboardController {
     }
 
     @FXML
-    private Button btnTime;
+    private Button btnLogout;
 
     @FXML
     private Button btnProjects;
@@ -40,20 +40,32 @@ public class DashboardController {
 
     @FXML
     private Button btnTeam;
-    
+
     @FXML
-    public void handleButtonAction(MouseEvent event) throws IOException {
+    private Button btnTime;
+
+    @FXML
+    private Button btnPersonalData;
+
+    @FXML
+    void handleButtonAction(MouseEvent event) throws IOException {
         if (event.getSource() == btnTime) {
-            StageHandler.changeToTimeTracker((Stage) btnTime.getScene().getWindow(), getClass());
+            StageHandler.changeToTimeOverview((Stage) btnTime.getScene().getWindow(), getClass());
         }
         else if (event.getSource() == btnProjects) {
-            StageHandler.changeToProjects((Stage) btnProjects.getScene().getWindow(), getClass());
+            StageHandler.changeToTrackProjects((Stage) btnProjects.getScene().getWindow(), getClass());
         }
         else if (event.getSource() == btnHoli) {
             StageHandler.changeToHoliday((Stage) btnHoli.getScene().getWindow(), getClass());
         }
         else if (event.getSource() == btnTeam) {
             StageHandler.changeToTeams((Stage) btnTeam.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnPersonalData) {
+            StageHandler.changeToPersonalData((Stage) btnPersonalData.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnLogout) {
+            StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
 
     }

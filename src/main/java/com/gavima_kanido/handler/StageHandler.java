@@ -23,12 +23,12 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
-    public static void changeToTimeTracker(Stage oldstage, Class actual_class) throws IOException
+    public static void changeToTimeOverview(Stage oldstage, Class actual_class) throws IOException
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerOverview.fxml"));   
-        loader.setController(new TimeTrackerOverviewController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeOverview.fxml"));   
+        loader.setController(new TimeOverviewController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
@@ -53,12 +53,51 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
-    public static void changeToProjects(Stage oldstage, Class actual_class) throws IOException
+    public static void changeToTrackProjects(Stage oldstage, Class actual_class) throws IOException
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerProjects.fxml"));   
-        loader.setController(new TimeTrackerProjectsController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TrackProjects.fxml"));   
+        loader.setController(new TrackProjectsController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToPersonalData(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/PersonalData.fxml"));   
+        loader.setController(new PersonalDataController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToLoggedOut(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/LoggedOut.fxml"));   
+        loader.setController(new LoggedOutController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+    public static void changeToProjectsDetails(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/ProjectsDetails.fxml"));   
+        loader.setController(new ProjectsDetailsController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToCreateProject(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/CreateProject.fxml"));   
+        loader.setController(new CreateProjectController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
