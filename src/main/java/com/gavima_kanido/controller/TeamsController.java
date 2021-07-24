@@ -1,11 +1,36 @@
 package com.gavima_kanido.controller;
+import java.io.IOException;
 
+import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
+
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class TeamsController {
     private User user;
 
     public TeamsController(User user) {
         this.user = user;
+    }
+
+    @FXML
+    private Button topmenu_dashboard;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    void handleButtonAction(MouseEvent event) throws IOException {
+
+        if (event.getSource() == topmenu_dashboard) {
+            StageHandler.changeToDashboard((Stage) topmenu_dashboard.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnLogout) {
+            StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
+        }
     }
 }

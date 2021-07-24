@@ -134,7 +134,7 @@
                         <Label text="my_budget" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                         <Label text="h_rate" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                         <Button id="btnManagersView" fx:id="btn_managers_view" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="136.0" styleClass="btnBlue" text="more" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-                        <Button id="btnRedirectTeams" fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Button fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
                      </children>
                   </GridPane>
                </children>

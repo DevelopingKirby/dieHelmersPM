@@ -36,10 +36,10 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLogout" mnemonicParsing="false" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
@@ -124,7 +124,6 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="btnBlue" text="Track Projects" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>
    </children>
