@@ -124,7 +124,7 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="btnBlue" text="My Projects" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+            <Button mnemonicParsing="false" styleClass="btnBlue" text="Track Projects" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
          </children>
       </GridPane>
    </children>

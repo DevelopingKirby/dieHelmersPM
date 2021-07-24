@@ -25,13 +25,13 @@ public class ProjectsDetailsController {
     }
 
     @FXML
-    private Button topmenu_myprojects;
+    private Button topmenu_trackprojects;
 
     @FXML
     private Button topmenu_dashboard;
 
     @FXML
-    private Button topmenu_dashboard1;
+    private Button topmenu_overview;
 
     @FXML
     private Button btnLogout;
@@ -43,9 +43,6 @@ public class ProjectsDetailsController {
     private Button btnTeams;
 
     @FXML
-    private Button btn_create_project;
-
-    @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
 
         if (event.getSource() == topmenu_dashboard) {
@@ -54,8 +51,11 @@ public class ProjectsDetailsController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
-        else if (event.getSource() == topmenu_myprojects) {
-            StageHandler.changeToProjects((Stage) topmenu_myprojects.getScene().getWindow(), getClass());
+        else if (event.getSource() == topmenu_trackprojects) {
+            StageHandler.changeToTrackProjects((Stage) topmenu_trackprojects.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == topmenu_overview) {
+            StageHandler.changeToTimeOverview((Stage) topmenu_overview.getScene().getWindow(), getClass());
         }
         else if (event.getSource() == btnTeams) {
             StageHandler.changeToTeams((Stage) btnTeams.getScene().getWindow(), getClass());
