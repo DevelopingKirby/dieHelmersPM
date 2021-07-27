@@ -1,5 +1,9 @@
 package com.gavima_kanido.models;
 
+import java.sql.SQLException;
+
+import com.gavima_kanido.utils.DatabaseOperationUtil;
+
 public class User {
 
     //TODO add personaldata
@@ -16,10 +20,11 @@ public class User {
     private int zip;
     private String phoneNumber;
     private String eMail;
+    private int privileges;
  
    
 
-    public User(String userRef, String firstName, String name, String street, String city, String country, String superiorName, String department, String team, int zip, String phoneNumber, String eMail) {
+    public User(String userRef, String firstName, String name, String street, String city, String country, String superiorName, String department, String team, int zip, String phoneNumber, String eMail) throws SQLException{
         this.userRef = userRef;
         this.firstName = firstName;
         this.name = name;
@@ -32,9 +37,12 @@ public class User {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.eMail = eMail;
+        this.privileges = DatabaseOperationUtil.getPrivileges(userRef);
     }
 
-    
+    public int getPrivileges(){
+        return this.privileges;
+    }
 
     public String getStreet() {
         return this.street;

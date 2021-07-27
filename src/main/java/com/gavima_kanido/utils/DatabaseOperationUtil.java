@@ -122,13 +122,7 @@ public class DatabaseOperationUtil {
             while (rs.next()) {
                 // TO-DO add all set-methods from user
                 // noch anzupassen an User-Klasse
-                if (privileges == 1) {
-                    user = new Vorgesetzer();
-                } else if (privileges == 2) {
-                    user = new Mitarbeiter();
-                } else {
-
-                }
+                user = new User(); //TO-DO add properties
             }
                 
         } catch (SQLException  e) {
