@@ -39,7 +39,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Label fx:id="lblUserRef" text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
                            </children>
                         </GridPane>
@@ -92,14 +92,10 @@
               </rowConstraints>
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name:" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Organisation:" GridPane.rowIndex="2" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Position:" GridPane.rowIndex="4" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" GridPane.rowIndex="6" />
-                  <Label text="user_name" textFill="WHITE" GridPane.rowIndex="1" />
-                  <Label text="user_company" textFill="WHITE" GridPane.rowIndex="3" />
-                  <Label text="user_position" textFill="WHITE" GridPane.rowIndex="5" />
-                  <Label text="user_phone" textFill="WHITE" GridPane.rowIndex="8" />
-                  <Label text="user_email" textFill="WHITE" GridPane.rowIndex="7" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" GridPane.rowIndex="2" />
+                  <Label fx:id="lblName" text="user_name" textFill="WHITE" GridPane.rowIndex="1" />
+                  <Label fx:id="lblPhone" text="user_phone" textFill="WHITE" GridPane.rowIndex="4" />
+                  <Label fx:id="lblEMail" text="user_email" textFill="WHITE" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <GridPane layoutX="37.0" layoutY="22.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -119,10 +115,11 @@
                </rowConstraints>
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress:" />
-                  <Label text="user_street" textFill="WHITE" GridPane.rowIndex="1" />
-                  <Label text="user_zip" textFill="WHITE" GridPane.rowIndex="2" />
-                  <Label text="user_country" textFill="WHITE" GridPane.rowIndex="4" />
-                  <Label layoutX="10.0" layoutY="100.0" text="user_city" textFill="WHITE" GridPane.rowIndex="3" />
+                  <Label fx:id="lblStreet" text="user_street" textFill="WHITE" GridPane.rowIndex="1" />
+                  <Label fx:id="lblZip" text="user_zip" textFill="WHITE" GridPane.rowIndex="2" />
+                  <Label fx:id="lblCountry" text="user_country" textFill="WHITE" GridPane.rowIndex="4" />
+                  <Label fx:id="lblCity" layoutX="10.0" layoutY="100.0" text="user_city" textFill="WHITE" GridPane.rowIndex="3" />
+                  <Button fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <GridPane layoutX="221.0" layoutY="22.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -141,11 +138,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:" GridPane.rowIndex="2" />
-                  <Label text="user_birthday" textFill="WHITE" GridPane.rowIndex="3" />
-                  <Label layoutX="10.0" layoutY="100.0" text="user_city_of_birth" textFill="WHITE" GridPane.rowIndex="5" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="City of Birth:" GridPane.rowIndex="4" />
-                  <Button fx:id="btnTeams" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="110.0" styleClass="btnBlue" text="Teams" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Position:" GridPane.rowIndex="2" />
+                  <Label fx:id="lblDepartment" text="user_department" textFill="WHITE" GridPane.rowIndex="1" />
+                  <Label fx:id="lblTeam" text="user_team" textFill="WHITE" GridPane.rowIndex="3" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Superior Name" GridPane.rowIndex="4" />
+                  <Label fx:id="lblSuperior" text="user_superior" textFill="WHITE" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </children>

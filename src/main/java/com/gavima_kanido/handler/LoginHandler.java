@@ -27,9 +27,7 @@ public class LoginHandler {
 
                 System.out.println("Wir sind sehr sehr geile typen!");
 
-                int privileges = DatabaseOperationUtil.getPrivileges(userRef);
-                // user = DatabaseOperationUtil.getPerson(userRef, privileges);
-                user = new User(); // zum Testen, MF
+                user = DatabaseOperationUtil.getPerson(userRef);
                 
 
             } else {

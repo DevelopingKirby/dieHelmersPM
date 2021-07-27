@@ -107,7 +107,7 @@ public class DatabaseOperationUtil {
 
     }
 
-    public static User getPerson(String userRef, int privileges) throws SQLException{
+    public static User getPerson(String userRef) throws SQLException{
         User user = null;
         Connection conn = null;
         PreparedStatement ps = null;
@@ -120,15 +120,10 @@ public class DatabaseOperationUtil {
             rs =  ps.executeQuery();
             
             while (rs.next()) {
+                
                 // TO-DO add all set-methods from user
                 // noch anzupassen an User-Klasse
-                if (privileges == 1) {
-                    user = new Vorgesetzer();
-                } else if (privileges == 2) {
-                    user = new Mitarbeiter();
-                } else {
-
-                }
+                user = new User(rs.getString("userRef"), rs.getString("name"), rs.getString("lastName"), rs.getString("street"), rs.getString("city"), rs.getString("country"), rs.getString("superiorName"), rs.getString("department"), rs.getString("team"), rs.getInt("zip"), rs.getString("phoneNumber"), rs.getString("eMail")); //TO-DO add properties
             }
                 
         } catch (SQLException  e) {

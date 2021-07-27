@@ -18,8 +18,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.fxml.Initializable;
 
 public class DashboardController {
 
@@ -48,6 +50,26 @@ public class DashboardController {
     private Button btnPersonalData;
 
     @FXML
+    private Label lblUserRef;
+
+    @FXML
+    private Label lblName;
+
+    @FXML
+    private Label lblDepartment;
+
+    @FXML
+    private Label lblTeam;
+
+    @FXML
+    private Label lblEMail;
+
+    @FXML
+    private Label lblPhone;
+
+    
+
+    @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
         if (event.getSource() == btnTime) {
             StageHandler.changeToTimeOverview((Stage) btnTime.getScene().getWindow(), getClass());
@@ -70,9 +92,16 @@ public class DashboardController {
 
     }
 
-    //btnTime.setOnAction(e -> stage.setScene(new Scene(root)));
+    @FXML
+    public void initialize(){
+        
+        lblUserRef.setText(user.getUserRef());
+        lblName.setText(user.getFirstName().substring(0, 1).toUpperCase() + user.getFirstName().substring(1) + " " + user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1));
+        lblDepartment.setText(user.getDepartment());
+        lblTeam.setText(user.getTeam());
+        lblEMail.setText(user.getEMail());
+        lblPhone.setText(user.getPhoneNumber());
 
-
-
-
+    }
+    
 }
