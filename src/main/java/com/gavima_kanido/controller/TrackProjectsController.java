@@ -99,6 +99,9 @@ public class TrackProjectsController {
     public void initialize(){
         
         lblUserRef.setText(user.getUserRef());
+        if (user.getPrivileges() == 2){
+            btn_create_project.setVisible(false);
+        }
     }
 
 }
