@@ -19,7 +19,6 @@ public class LoggedOutController {
 
     public void logOut() throws IOException {
         StageHandler.setUser(null);
-        System.out.println("Hello");
         StageHandler.changeToLogIn(myStage , getClass());
     }
 
