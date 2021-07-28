@@ -40,7 +40,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Label fx:id="lblUserRef" text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                               <Button fx:id="topmenu_trackprojects" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Track Projects" textFill="WHITE" GridPane.columnIndex="1" />
                               <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
                            </children>

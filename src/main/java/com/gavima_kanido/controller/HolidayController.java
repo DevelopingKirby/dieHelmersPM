@@ -134,6 +134,9 @@ public class HolidayController {
 
     @FXML
     private ChoiceBox<?> pick_month;
+    
+    @FXML
+    private Label lblUserRef;
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -143,6 +146,12 @@ public class HolidayController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
+    }
+
+    @FXML
+    public void initialize(){
+        
+        lblUserRef.setText(user.getUserRef());
     }
 
 }

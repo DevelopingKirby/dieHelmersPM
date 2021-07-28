@@ -7,6 +7,7 @@ import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -45,6 +46,9 @@ public class CreateProjectController {
 
     @FXML
     private Button btn_save_project;
+    
+    @FXML
+    private Label lblUserRef;
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -58,6 +62,12 @@ public class CreateProjectController {
         else if (event.getSource() == topmenu_trackprojects) {
             StageHandler.changeToTrackProjects((Stage) topmenu_trackprojects.getScene().getWindow(), getClass());
         }
+    }
+
+    @FXML
+    public void initialize(){
+        
+        lblUserRef.setText(user.getUserRef());
     }
 
 }
