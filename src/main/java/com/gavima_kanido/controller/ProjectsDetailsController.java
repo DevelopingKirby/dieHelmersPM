@@ -5,6 +5,7 @@ import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -35,6 +36,9 @@ public class ProjectsDetailsController {
     private Button btnTeams;
 
     @FXML
+    private Label lblUserRef;
+
+    @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
 
         if (event.getSource() == topmenu_dashboard) {
@@ -52,6 +56,12 @@ public class ProjectsDetailsController {
         else if (event.getSource() == btnTeams) {
             StageHandler.changeToTeams((Stage) btnTeams.getScene().getWindow(), getClass());
         }
+    }
+
+    @FXML
+    public void initialize(){
+        
+        lblUserRef.setText(user.getUserRef());
     }
 
 }

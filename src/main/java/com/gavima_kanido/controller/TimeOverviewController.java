@@ -7,6 +7,7 @@ import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -31,6 +32,9 @@ public class TimeOverviewController {
     @FXML
     private Button btnTTExport;
 
+    @FXML
+    private Label lblUserRef;
+
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -46,4 +50,9 @@ public class TimeOverviewController {
         }
     }
 
+    @FXML
+    public void initialize(){
+        
+        lblUserRef.setText(user.getUserRef());
+    }
 }

@@ -139,7 +139,7 @@
                </rowConstraints>
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Position:" GridPane.rowIndex="2" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team:" GridPane.rowIndex="2" />
                   <Label fx:id="lblDepartment" text="user_department" textFill="WHITE" GridPane.rowIndex="1" />
                   <Label fx:id="lblTeam" text="user_team" textFill="WHITE" GridPane.rowIndex="3" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Superior Name" GridPane.rowIndex="4" />
