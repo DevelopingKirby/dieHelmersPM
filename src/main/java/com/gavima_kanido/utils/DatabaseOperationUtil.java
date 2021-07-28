@@ -2,10 +2,7 @@ package com.gavima_kanido.utils;
 
 import java.sql.*;
 
-import com.gavima_kanido.models.Mitarbeiter;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.models.Vorgesetzer;
-
 
 public class DatabaseOperationUtil {
 
