@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
+import com.gavima_kanido.utils.DatabaseOperationUtil;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CreateProjectController {
@@ -20,11 +22,9 @@ public class CreateProjectController {
         this.user = user;
     }
 
+   
     @FXML
-    private TextField team_names_input;
-
-    @FXML
-    private TextField project_dexcription_input;
+    private TextField project_description_input;
 
     @FXML
     private TextField project_name_input;
@@ -51,7 +51,10 @@ public class CreateProjectController {
     private Label lblUserRef;
 
     @FXML
-    void handleButtonAction(MouseEvent event) throws IOException {
+    private Label lblInfo;
+
+    @FXML
+    void handleButtonAction(MouseEvent event) throws Exception {
 
         if (event.getSource() == topmenu_dashboard) {
             StageHandler.changeToDashboard((Stage) topmenu_dashboard.getScene().getWindow(), getClass());
@@ -62,6 +65,24 @@ public class CreateProjectController {
         else if (event.getSource() == topmenu_trackprojects) {
             StageHandler.changeToTrackProjects((Stage) topmenu_trackprojects.getScene().getWindow(), getClass());
         }
+        else if (event.getSource() == btn_save_project){
+            if (customer_name_input.getText().isEmpty() || customer_name_input.getText().isEmpty() || project_description_input.getText().isEmpty() || project_budget_input.getText().isEmpty() || !(project_budget_input.getText().matches("-?\\d+"))){
+                lblInfo.setTextFill(Color.TOMATO);
+                lblInfo.setText("all fields has to be filled\nand budget field has to\nbe an Int");
+            }
+            else
+            {
+                if (DatabaseOperationUtil.addProject(customer_name_input.getText(), customer_name_input.getText(), project_description_input.getText(), Integer.parseInt(project_budget_input.getText())) == 0){
+                    lblInfo.setTextFill(Color.TOMATO);
+                    lblInfo.setText("adding project failed");
+                }
+                else{
+                    lblInfo.setTextFill(Color.GREEN);
+                    lblInfo.setText("added project successfully");
+                }
+            }
+        }
+           
     }
 
     @FXML

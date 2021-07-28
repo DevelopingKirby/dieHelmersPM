@@ -86,24 +86,18 @@
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Project" GridPane.columnIndex="1" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Description:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-                  <Label text="customer_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-                  <Label text="budget" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-                  <Label text="project_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                  <Label text="project_dexcription" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-                  <Label text="team_list" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-                  <TextField fx:id="team_names_input" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-                  <TextField fx:id="project_dexcription_input" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
                   <TextField fx:id="project_name_input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                   <TextField fx:id="customer_name_input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                  <TextField fx:id="project_description_input" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
                   <TextField fx:id="project_budget_input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="400.0" styleClass="txtField" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-                  <Button fx:id="btn_save_project" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="28.0" prefWidth="101.0" styleClass="btnBlue" text="Save" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+                  <Button fx:id="btn_save_project" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="28.0" prefWidth="101.0" styleClass="btnBlue" text="Save" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="16.0" />
                      </GridPane.margin>
                   </Button>
+                  <Label fx:id="lblInfo" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children></AnchorPane>

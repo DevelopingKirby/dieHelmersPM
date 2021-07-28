@@ -1,7 +1,12 @@
+
+
+
 package com.gavima_kanido.utils;
 
 import java.sql.*;
+import java.time.LocalDate;
 
+import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 
 public class DatabaseOperationUtil {
@@ -139,8 +144,44 @@ public class DatabaseOperationUtil {
 
     }
 
+        public static int addProject(String projectName, String customer, String description, int budget) throws SQLException{
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int row = 0;
+        String projectId = Double.toString(System.currentTimeMillis() / 1000L);
 
 
-    
+        if (projectName != null && customer != null && description != null && budget != 0) {
+
+        try {
+            String sql = "INSERT INTO projects (projectId, projectName, projectCustomer, projectDescription, projectBudget) VALUES (?, ?, ?, ?, ?);";
+            conn = ConnectionUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, projectId);
+            ps.setString(2, projectName);
+            ps.setString(3, customer);
+            ps.setString(4, description);
+            ps.setInt(5, budget);
+            row = ps.executeUpdate();        
+
+                
+        } catch (SQLException  e) {
+            System.err.println(e);
+            return row;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        } else {}
+
+        return row;
+
+    }
+ 
 
 }
