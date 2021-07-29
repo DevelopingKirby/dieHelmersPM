@@ -75,7 +75,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnHoli" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" styleClass="btnMenuHoliday" text="Holiday" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <Button fx:id="btnHoli" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="150.0" prefWidth="150.0" styleClass="btnMenuHoliday" text="Absence" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
