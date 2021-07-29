@@ -1,6 +1,7 @@
 package com.gavima_kanido.controller;
 import java.io.IOException;
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXML;
@@ -12,9 +13,11 @@ import javafx.stage.Stage;
 public class ProjectsDetailsController {
 
     private User user;
+    private Project project;
 
-    public ProjectsDetailsController(User user) {
+    public ProjectsDetailsController(User user, Project project) {
         this.user = user;
+        this.project = project;
     }
 
     @FXML

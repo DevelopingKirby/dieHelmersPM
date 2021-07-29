@@ -1,9 +1,12 @@
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.models.Database;
 import com.gavima_kanido.models.User;
+import com.gavima_kanido.utils.DatabaseOperationUtil;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -97,6 +100,23 @@ public class PersonalDataController {
         lblStreet.setText(user.getStreet());
         lblSuperior.setText(user.getSuperiorName());
 
+
+    }
+
+    public void setEmployeeData(User u) {
+
+        User employee = u;
+
+        lblName.setText(employee.getFirstName().substring(0, 1).toUpperCase() + employee.getFirstName().substring(1) + " " + employee.getName().substring(0, 1).toUpperCase() + employee.getName().substring(1));
+        lblDepartment.setText(employee.getDepartment());
+        lblTeam.setText(employee.getTeam());
+        lblEMail.setText(employee.getEMail());
+        lblPhone.setText(employee.getPhoneNumber());
+        lblCity.setText(employee.getCity());
+        lblCountry.setText(employee.getCountry());
+        lblZip.setText(Integer.toString(employee.getZip()));
+        lblStreet.setText(employee.getStreet());
+        lblSuperior.setText(employee.getSuperiorName());
 
     }
 

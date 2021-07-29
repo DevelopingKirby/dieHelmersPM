@@ -94,6 +94,10 @@ public class DashboardController {
 
     @FXML
     public void initialize(){
+
+        if (user.getPrivileges() == 2) {
+            btnTeam.setVisible(false);
+        }
         
         lblUserRef.setText(user.getUserRef());
         lblName.setText(user.getFirstName().substring(0, 1).toUpperCase() + user.getFirstName().substring(1) + " " + user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1));

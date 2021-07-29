@@ -5,6 +5,8 @@ package com.gavima_kanido.utils;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
@@ -144,6 +146,140 @@ public class DatabaseOperationUtil {
 
     }
 
+    public static List<User> getTeamMembers(String team) throws SQLException{
+        List<User> user = new ArrayList<User>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM personaldata Where team = ?";
+            conn = ConnectionUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, team);
+            rs =  ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                // TO-DO add all set-methods from user
+                // noch anzupassen an User-Klasse
+                user.add(new User(rs.getString("userRef"), rs.getString("name"), rs.getString("lastName"), rs.getString("street"), rs.getString("city"), rs.getString("country"), rs.getString("superiorName"), rs.getString("department"), rs.getString("team"), rs.getInt("zip"), rs.getString("phoneNumber"), rs.getString("eMail"))); //TO-DO add properties
+            }
+                
+        } catch (SQLException  e) {
+            System.err.println(e);
+            return user;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return user;
+
+    }
+
+    public static List<Project> getProjects() throws SQLException{
+        List<Project> projects = new ArrayList<Project>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM projects";
+            conn = ConnectionUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs =  ps.executeQuery();
+            
+            while (rs.next()) {
+
+                projects.add(new Project(rs.getString("projectId"),rs.getString("projectName"), rs.getString("projectCustomer"), rs.getString("projectDescription"), rs.getInt("projectBudget"), DatabaseOperationUtil.getProjectMember(rs.getString("projectId"))));
+            }
+                
+        } catch (SQLException  e) {
+            System.err.println(e);
+            return projects;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return projects;
+
+    }
+
+    public static List<Project> getProjects(String userRef) throws SQLException{
+        List<Project> projects = new ArrayList<Project>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM projectAssignment WHERE userRef = ?";
+            conn = ConnectionUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, userRef);
+            rs =  ps.executeQuery();
+            
+            while (rs.next()) {
+            
+                projects.add(new Project(rs.getString("projectId"),rs.getString("projectName"), rs.getString("projectCustomer"), rs.getString("projectDescription"), rs.getInt("projectBudget"), DatabaseOperationUtil.getProjectMember(rs.getString("projectId"))));
+            }
+                
+        } catch (SQLException  e) {
+            System.err.println(e);
+            return projects;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return projects;
+
+    }
+
+
+    public static List<User> getProjectMember(String projectRef) throws SQLException{
+        List<User> users = new ArrayList<User>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM projects WHERE projectId = ?";
+            conn = ConnectionUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, projectRef);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                users.add(DatabaseOperationUtil.getPerson(rs.getString("userRef")));
+            }
+
+                
+        } catch (SQLException  e) {
+            System.err.println(e);
+            return users;
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+
+        return users;
+
+    }
+
         public static int addProject(String projectName, String customer, String description, int budget) throws SQLException{
         Connection conn = null;
         PreparedStatement ps = null;
@@ -182,6 +318,86 @@ public class DatabaseOperationUtil {
         return row;
 
     }
+
+        public static int addToProject(String lastName, String projectRef) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            int row = 0;
+
+            try {
+                String sql2 = "SELECT userRef FROM personaldata WHERE lastName = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql2);
+                ps.setString(1, lastName);
+                ResultSet rs2 = ps.executeQuery();
+
+                while (rs2.next()) {
+
+                    String sql = "INSERT INTO projectAssignment (projectRef, userRef ) VALUES (?, ?)";
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, projectRef);
+                    ps.setString(2, rs2.getString("userRef"));
+                    row = ps.executeUpdate();        
+
+                }
+
+
+    
+                    
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return row;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return row;
+        }
+
+        public static int removeFromProject(String lastName, String projectRef) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            int row = 0;
+
+            try {
+                String sql2 = "SELECT userRef FROM personaldata WHERE lastName = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql2);
+                ps.setString(1, lastName);
+                ResultSet rs2 = ps.executeQuery();
+
+                while (rs2.next()) {
+
+                    String sql = "DELETE FROM projectAssignment WHERE projectRef = ? AND userRef = ?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, projectRef);
+                    ps.setString(2, rs2.getString("userRef"));
+                    row = ps.executeUpdate();        
+
+                }
+
+
+    
+                    
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return row;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return row;
+        }
  
 
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import com.gavima_kanido.controller.*;
+import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXMLLoader;
@@ -74,6 +75,18 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
+    public static void changeToEmployeeData(Stage oldstage, Class actual_class, User user) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/PersonalData.fxml"));
+        PersonalDataController ctrData = new PersonalDataController(stageUser);
+        loader.setController(ctrData);
+        Scene scene = new Scene((Parent) loader.load());
+        ctrData.setEmployeeData(user);
+        stage.setScene(scene);
+    }
+
     public static void changeToLoggedOut(Stage oldstage, Class actual_class) throws IOException
     {
         Stage stage = oldstage;
@@ -86,12 +99,12 @@ public class StageHandler {
         stage.setScene(scene);
         ctrLogOut.logOut();
     }
-    public static void changeToProjectsDetails(Stage oldstage, Class actual_class) throws IOException
+    public static void changeToProjectsDetails(Stage oldstage, Class actual_class, Project project) throws IOException
     {
         Stage stage = oldstage;
 
         FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/ProjectsDetails.fxml"));   
-        loader.setController(new ProjectsDetailsController(stageUser));
+        loader.setController(new ProjectsDetailsController(stageUser, project));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }

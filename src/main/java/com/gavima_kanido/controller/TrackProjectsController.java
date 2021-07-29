@@ -2,12 +2,18 @@
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
+import com.gavima_kanido.utils.DatabaseOperationUtil;
+import com.gavima_kanido.models.Project;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -16,46 +22,29 @@ import javafx.stage.Stage;
 public class TrackProjectsController {
 
     private User user;
+    private List<Project> userProjects = new ArrayList<Project>();
 
     public TrackProjectsController(User user) {
         this.user = user;
+        try {
+            this.userProjects = DatabaseOperationUtil.getProjects(user.getUserRef());
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private Button play_project_1;
+    private Button startTime;
 
     @FXML
-    private Button play_project_2;
+    private Button stopTime;
 
     @FXML
-    private Button play_project_3;
+    private Button projectDetails;
 
     @FXML
-    private Button play_project_4;
-
-    @FXML
-    private Button stop_project_1;
-
-    @FXML
-    private Button stop_project_2;
-
-    @FXML
-    private Button stop_project_3;
-
-    @FXML
-    private Button stop_project_4;
-
-    @FXML
-    private Button project1_details;
-
-    @FXML
-    private Button project2_details;
-
-    @FXML
-    private Button project3_details;
-
-    @FXML
-    private Button project4_details;
+    private ComboBox<String> comboBoxProject;
 
     @FXML
     private Button topmenu_overview;
@@ -66,8 +55,6 @@ public class TrackProjectsController {
     @FXML
     private Button btnLogout;
 
-    @FXML
-    private TextField project_search;
 
     @FXML
     private Button btn_create_project;
@@ -84,8 +71,13 @@ public class TrackProjectsController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
-        else if (event.getSource() == project1_details) {
-            StageHandler.changeToProjectsDetails((Stage) project1_details.getScene().getWindow(), getClass());
+        else if (event.getSource() == projectDetails) {
+            for (Project p : userProjects) {
+
+                if (comboBoxProject.getSelectionModel().getSelectedItem().equals(p.getName())) {
+                    StageHandler.changeToProjectsDetails((Stage) projectDetails.getScene().getWindow(), getClass(), p);
+                }
+            }
         }
         else if (event.getSource() == topmenu_overview) {
             StageHandler.changeToTimeOverview((Stage) topmenu_overview.getScene().getWindow(), getClass());
@@ -95,13 +87,21 @@ public class TrackProjectsController {
         }
     }
 
+    public void populateProjectsList() {   
+        for(Project p : userProjects) {
+            comboBoxProject.getItems().add(p.getName());
+        }
+    }
+
     @FXML
     public void initialize(){
-        
+        populateProjectsList();
         lblUserRef.setText(user.getUserRef());
         if (user.getPrivileges() == 2){
             btn_create_project.setVisible(false);
         }
+
+
     }
 
 }
