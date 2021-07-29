@@ -32,7 +32,7 @@
 }
 .button2:hover
 {
--fx-background-color : #0C3988 ;
+-fx-background-color : #203864 ;
 -fx-text-fill:   #ffffff;
 }
 .button2:pressed
@@ -42,7 +42,7 @@
 }
 
 .button#btnSignin {
-    -fx-background-color : #404040;
+    -fx-background-color : #203864;
     -fx-text-fill:  #BDD7EE;
     -fx-border-color: #BDD7EE;
     -fx-border-width : 2px;
@@ -167,6 +167,22 @@
 
 .emptyPane:hover {
     -fx-background-color: #FFD966;
+}
+
+.loginPane {
+    -fx-opacity:0;
+}
+
+.loginPane:hover {
+    -fx-opacity:1;
+}
+
+.loginPaneHide {
+    -fx-opacity:1;
+}
+
+.loginPaneHide:hover {
+    -fx-opacity:0;
 }
 
 .table-view .column-header .label{

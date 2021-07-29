@@ -4,42 +4,110 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="503.0" maxWidth="854.0" minHeight="503.0" minWidth="854.0" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #404040;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #203864;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <Label alignment="CENTER" layoutX="105.0" layoutY="219.0" prefHeight="23.0" prefWidth="173.0" text="Gavima Kanido" textFill="WHITE">
-                    <font>
-                        <Font name="Segoe UI" size="18.0" />
-                    </font>
-                </Label>
-                <Label alignment="CENTER" layoutX="89.0" layoutY="262.0" prefHeight="23.0" prefWidth="205.0" text="Manage your employees easily" textFill="WHITE">
-                    <font>
-                        <Font name="Segoe UI" size="12.0" />
-                    </font>
-                </Label>
-            </children>
-        </AnchorPane>
-        <Pane layoutX="466.0" layoutY="172.0" prefHeight="160.0" prefWidth="283.0" AnchorPane.bottomAnchor="171.0" AnchorPane.topAnchor="172.0">
-            <children>
-                <TextField fx:id="txtUsername" onAction="#onEnter" layoutX="8.0" layoutY="-3.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" styleClass="txtField" />
-                <PasswordField fx:id="txtPassword" onAction="#onEnter" layoutX="8.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" styleClass="txtField" />
-                <Button fx:id="btnSignin" layoutX="7.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="275.0" text="Sign in" />
-                <Label fx:id="lblInfo"  alignment="CENTER" layoutX="8.0" layoutY="98.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
-                    <font>
-                        <Font name="Segoe UI" size="10.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Label alignment="CENTER" layoutX="394.0" layoutY="466.0" prefHeight="23.0" prefWidth="184.0" text="Design by Helmers Corp. GmbH" textFill="#5b5a5a" AnchorPane.bottomAnchor="14.0">
-            <font>
-                <Font name="Segoe UI" size="12.0" />
-            </font>
-        </Label>
+      <GridPane prefHeight="509.0" prefWidth="860.0" style="-fx-background-color: #203864;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="440.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="368.0" fitWidth="369.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <image>
+                  <Image url="@../img/gavima_white_Zeichenfl├дche%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #404040;" styleClass="loginPane">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="259.0" minHeight="10.0" prefHeight="168.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+              <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #404040;" GridPane.rowIndex="2">
+               <children>
+                  <GridPane layoutX="-1.0" prefHeight="212.0" prefWidth="854.0" style="-fx-background-color: #203864;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                            <Button fx:id="btnSignin" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="250.0" text="Sign in" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                          <Label alignment="CENTER" prefHeight="23.0" prefWidth="184.0" text="Design by Helmers Corp. GmbH" textFill="#496399" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                              <font>
+                                  <Font name="Segoe UI" size="12.0" />
+                              </font>
+                          </Label>
+                     </children>
+                  </GridPane>
+               </children>
+              </AnchorPane>
+            <GridPane prefHeight="180.0" prefWidth="854.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <PasswordField fx:id="txtPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onEnter" prefHeight="30.0" prefWidth="250.0" promptText="password" styleClass="txtField" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                      <TextField fx:id="txtUsername" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onEnter" prefHeight="30.0" prefWidth="250.0" promptText="username or email" styleClass="txtField" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+               </children>
+            </GridPane>
+            <GridPane prefHeight="98.0" prefWidth="851.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="853.0" style="-fx-background-color: #595959;" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                      <Label fx:id="lblInfo" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" textFill="#ff6354" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                          <font>
+                              <Font name="Segoe UI" size="10.0" />
+                          </font>
+                      </Label>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>
