@@ -2,6 +2,7 @@
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class TrackProjectsController {
@@ -35,6 +37,17 @@ public class TrackProjectsController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public void wait(int ms) {
+        try
+            {
+              Thread.sleep(ms);
+            }
+        catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
     }
 
     @FXML
@@ -91,31 +104,34 @@ public class TrackProjectsController {
                 lblCustomer.setText(p.getCustomer());
                 lblBudget.setText(Integer.toString(p.getBudget()));
                 lblDescription.setText(p.getDescription());
+                try {
+                    totalTimeSpent.setText(String.valueOf(DatabaseOperationUtil.getHoursWorkedOnProject(user.getUserRef(), p.getId())) + " h");
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 
             }
         }
     }
 
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
 
 
-    public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
 
-        BigDecimal bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
 
-        long unixTime = System.currentTimeMillis() / 1000L;
+    //     long unixTime = System.currentTimeMillis() / 1000L;
 
-        System.out.println(unixTime);
-        double diff = (unixTime - 1627589467);
-        System.out.println(diff/60);
-        double hours = round((unixTime - 1627589467)/60.0, 2);
+    //     System.out.println(unixTime);
+    //     double diff = (unixTime - 1627589467);
+    //     System.out.println(diff/60);
+    //     double hours = (unixTime - 1627589467)/60.0/60.0;
 
-        System.out.println(hours);
-    }
+    //     double roundedHours = Math.round( hours * 100.0) / 100.0;
+
+    //     System.out.println(hours);
+    //     System.out.println(roundedHours);
+    // }
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -132,6 +148,62 @@ public class TrackProjectsController {
         else if (event.getSource() == btn_create_project) {
             StageHandler.changeToCreateProject((Stage) btn_create_project.getScene().getWindow(), getClass());
         }
+        else if (event.getSource() == startTime) {
+            int dbOperationWorked = 0;
+            for (Project p : userProjects) {
+                if (p.getName().equals(comboBoxProject.getSelectionModel().getSelectedItem())) {
+                    lblTimeInfo.setTextFill(Color.GREEN);
+                    lblTimeInfo.setText("Time tracking is running...");
+                    try {
+                        dbOperationWorked =  DatabaseOperationUtil.addStartTimeForProject(user.getUserRef(), p.getId());
+                        if (dbOperationWorked == 0) {
+                            lblTimeInfo.setText("Time tracking already started!");
+                        }
+    
+
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+
+    
+                }
+            }       
+        }
+        else if (event.getSource() == stopTime) {
+            int dbOperationWorked = 0;
+            for (Project p : userProjects) {
+                if (p.getName().equals(comboBoxProject.getSelectionModel().getSelectedItem())) {
+                    
+                    lblTimeInfo.setTextFill(Color.YELLOW);
+                    lblTimeInfo.setText("Time tracking stopped!");
+                    
+                    try {
+                        dbOperationWorked = DatabaseOperationUtil.addEndTimeForProject(user.getUserRef(), p.getId());
+                        if (dbOperationWorked == 1) {
+                            try {
+                                totalTimeSpent.setText(String.valueOf(DatabaseOperationUtil.getHoursWorkedOnProject(user.getUserRef(), p.getId())) + " h");
+                            } catch (SQLException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                        }
+                        else{
+                            lblTimeInfo.setTextFill(Color.YELLOW);
+                            lblTimeInfo.setText("Time tracking hasn't started!");
+                        }
+    
+
+                    } catch (SQLException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+
+                }
+            }
+        }
     }
 
     public void populateProjectsList() {   
@@ -143,6 +215,7 @@ public class TrackProjectsController {
     @FXML
     public void initialize(){
         populateProjectsList();
+        
         lblUserRef.setText(user.getUserRef());
         if (user.getPrivileges() == 2){
             btn_create_project.setVisible(false);

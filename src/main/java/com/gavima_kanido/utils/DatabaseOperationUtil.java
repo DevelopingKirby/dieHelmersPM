@@ -344,10 +344,13 @@ public class DatabaseOperationUtil {
 
                 while (rs2.next()) {
 
-                    String sql = "INSERT INTO projectAssignment (projectRef, userRef ) VALUES (?, ?)";
+                    String sql = "INSERT INTO projectAssignment (projectRef, userRef, startTime, totalTime ) VALUES (?, ?, ?, ?)";
                     ps = conn.prepareStatement(sql);
                     ps.setString(1, projectRef);
                     ps.setString(2, rs2.getString("userRef"));
+                    ps.setInt(3, 0);
+                    ps.setDouble(4, 0.0);
+                    
                     row = ps.executeUpdate();        
 
                 }
@@ -412,18 +415,31 @@ public class DatabaseOperationUtil {
 
 
         public static int addStartTimeForProject(String userRef, String projectRef) throws SQLException {
+
             Connection conn = null;
             PreparedStatement ps = null;
             int row = 0;
+            ResultSet rs = null;
 
             try {
-                String sql = "UPDATE projectAssignment SET startTime = ? WHERE userRef = ? AND projectRef = ?";
+                String sql = "SELECT * FROM projectAssignment WHERE userRef = ? AND projectRef = ?";
                 conn = ConnectionUtil.getConnection();
                 ps = conn.prepareStatement(sql);
-                ps.setLong(1, System.currentTimeMillis() / 1000L);
-                ps.setString(2, userRef);
-                ps.setString(3, projectRef);
-                row = ps.executeUpdate();
+                ps.setString(1, userRef);
+                ps.setString(2, projectRef);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    if (rs.getInt("startTime") == 0) {
+                        sql = "UPDATE projectAssignment SET startTime = ? WHERE userRef = ? AND projectRef = ?";
+                        ps = conn.prepareStatement(sql);
+                        ps.setLong(1, System.currentTimeMillis() / 1000L);
+                        ps.setString(2, userRef);
+                        ps.setString(3, projectRef);
+                        row = ps.executeUpdate();
+                    }
+                }
    
                     
             } catch (SQLException  e) {
@@ -440,6 +456,90 @@ public class DatabaseOperationUtil {
 
             return row;
         }
+
+        public static int addEndTimeForProject(String userRef, String projectRef) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            int row = 0;
+            ResultSet rs = null;
+
+            try {
+                String sql = "SELECT * FROM projectAssignment WHERE userRef = ? AND projectRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, userRef);
+                ps.setString(2, projectRef);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    if (rs.getInt("startTime") != 0) {
+                        sql = "UPDATE projectAssignment SET totalTime = ?, startTime = ? WHERE userRef = ? AND projectRef = ?";
+                        ps = conn.prepareStatement(sql);
+    
+                        double hoursWorked = ((System.currentTimeMillis() / 1000L - rs.getInt("startTime"))/3600.0);
+                        double hoursWorkedRounded = Math.round(hoursWorked * 100.0) / 100.0;
+                        double hoursWorkedRoundedTotal = rs.getDouble("totalTime") + hoursWorkedRounded;
+                        ps.setDouble(1, hoursWorkedRoundedTotal);
+                        ps.setInt(2, 0);
+                        ps.setString(3, userRef);
+                        ps.setString(4, projectRef);
+                        row = ps.executeUpdate();
+                    }
+
+                }
+   
+                    
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return row;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return row;
+        }
+
+		public static double getHoursWorkedOnProject(String userRef, String projectRef) throws SQLException {
+            double hoursWorked = 0.0;
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+
+            try {
+                String sql = "SELECT totalTime FROM projectAssignment WHERE userRef = ? AND projectRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, userRef);
+                ps.setString(2, projectRef);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    return rs.getDouble("totalTime");
+
+                }
+   
+                    
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return hoursWorked;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return hoursWorked;
+		}
  
 
 }

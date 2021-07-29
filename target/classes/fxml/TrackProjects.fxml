@@ -85,7 +85,7 @@
               </rowConstraints>
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TrackProjects" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  <Label fx:id="totalTimeSpent" text="h_spent" textFill="#fcf3f3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label fx:id="totalTimeSpent" textFill="#fcf3f3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <Button fx:id="startTime" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView fx:id="startProject" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="39.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
@@ -119,6 +119,7 @@
                   <Label fx:id="lblCustomer" textFill="#fcf3f3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Label fx:id="lblBudget" textFill="#fcf3f3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                   <Label fx:id="lblDescription" textFill="#fcf3f3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                  <Label fx:id="lblTimeInfo" textFill="#fcf3f3" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
          </children></AnchorPane>
