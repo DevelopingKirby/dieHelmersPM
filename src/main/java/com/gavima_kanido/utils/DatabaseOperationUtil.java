@@ -226,8 +226,19 @@ public class DatabaseOperationUtil {
             rs =  ps.executeQuery();
             
             while (rs.next()) {
+
+                sql = "SELECT * FROM projects WHERE projectId = ?";
+                
+
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, rs.getString("projectRef"));
+                ResultSet rs2 = ps.executeQuery();
+
+                while (rs2.next()) {
+
+                    projects.add(new Project(rs2.getString("projectId"),rs2.getString("projectName"), rs2.getString("projectCustomer"), rs2.getString("projectDescription"), rs2.getInt("projectBudget"), DatabaseOperationUtil.getProjectMember(rs2.getString("projectId"))));
+                }
             
-                projects.add(new Project(rs.getString("projectId"),rs.getString("projectName"), rs.getString("projectCustomer"), rs.getString("projectDescription"), rs.getInt("projectBudget"), DatabaseOperationUtil.getProjectMember(rs.getString("projectId"))));
             }
                 
         } catch (SQLException  e) {
@@ -253,7 +264,7 @@ public class DatabaseOperationUtil {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM projects WHERE projectId = ?";
+            String sql = "SELECT * FROM projectAssignment WHERE projectRef = ?";
             conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, projectRef);
@@ -383,6 +394,37 @@ public class DatabaseOperationUtil {
 
 
     
+                    
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return row;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return row;
+        }
+
+
+        public static int addStartTimeForProject(String userRef, String projectRef) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            int row = 0;
+
+            try {
+                String sql = "UPDATE projectAssignment SET startTime = ? WHERE userRef = ? AND projectRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setLong(1, System.currentTimeMillis() / 1000L);
+                ps.setString(2, userRef);
+                ps.setString(3, projectRef);
+                row = ps.executeUpdate();
+   
                     
             } catch (SQLException  e) {
                 System.err.println(e);

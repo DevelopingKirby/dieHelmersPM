@@ -33,9 +33,6 @@ public class ProjectsDetailsController {
     private Button btnLogout;
 
     @FXML
-    private Button btn_managers_view;
-
-    @FXML
     private Button btnTeams;
 
     @FXML

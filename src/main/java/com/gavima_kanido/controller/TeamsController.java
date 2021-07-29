@@ -4,17 +4,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sound.midi.SysexMessage;
-
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 import com.gavima_kanido.utils.DatabaseOperationUtil;
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -23,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class TeamsController {
@@ -66,6 +65,16 @@ public class TeamsController {
 
     @FXML
     private Button btnGetPersonaldata;
+
+    @FXML
+    private Label lblUserRef;
+
+    @FXML
+    private Label lblInfo;
+
+    @FXML
+    private Button btn_create_project;
+
 
     @FXML
     private void comboAction(ActionEvent event) {
@@ -131,9 +140,16 @@ public class TeamsController {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
 
-        else if (event.getSource() == btnAddToProject) {            
-            ObservableList<MenuItem> employeesInProjects =  employeeMenuButton.getItems();
+        else if (event.getSource() == btn_create_project) {
+            StageHandler.changeToCreateProject((Stage) btn_create_project.getScene().getWindow(), getClass());
+        }
 
+        else if (event.getSource() == btnAddToProject) {   
+            lblInfo.setTextFill(Color.GREEN);
+            lblInfo.setText("loading...");    
+            System.out.println("loading...");     
+            ObservableList<MenuItem> employeesInProjects =  employeeMenuButton.getItems();
+            
             for (MenuItem m : employeesInProjects) {
 
                 CustomMenuItem menuItem = ((CustomMenuItem) m);
@@ -145,9 +161,18 @@ public class TeamsController {
                     for (Project p : projects) {
 
                         if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
+                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
+
+                            if (p.getMember().isEmpty()) {
+                                    try {
+                                        DatabaseOperationUtil.addToProject(split[1], p.getId());
+                                    } catch (SQLException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                    }
+                            }
 
                             for (User u : p.getMember()) {
-                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
 
                                 if (u.getName().equals(split[1])) {
 
@@ -155,10 +180,7 @@ public class TeamsController {
 
                                 } else {
                                     try {
-                                        DatabaseOperationUtil.addToProject(split[1], p.getId());
-                                        this.projects = DatabaseOperationUtil.getProjects();
-
-        
+                                        DatabaseOperationUtil.addToProject(split[1], p.getId());        
                                     } catch (SQLException e) {
                                         // TODO Auto-generated catch block
                                         e.printStackTrace();
@@ -189,7 +211,7 @@ public class TeamsController {
                                 if (u.getName().equals(split[1])) {
                                     try {
                                         DatabaseOperationUtil.removeFromProject(split[1], p.getId());
-                                        this.projects = DatabaseOperationUtil.getProjects();
+                                        
                                     } catch (SQLException e) {
                                         // TODO Auto-generated catch block
                                         e.printStackTrace();
@@ -208,6 +230,14 @@ public class TeamsController {
 
 
 
+            }
+
+            lblInfo.setText("");
+            try {
+                this.projects = DatabaseOperationUtil.getProjects();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
 
         } 
@@ -252,6 +282,7 @@ public class TeamsController {
     }
 
     public void initialize() {
+        lblUserRef.setText(user.getUserRef());
         lblTeamName.setText(user.getTeam());
         populateProjectsList();
         populateEmployeeListProjects();

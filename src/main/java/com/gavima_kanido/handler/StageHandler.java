@@ -99,15 +99,6 @@ public class StageHandler {
         stage.setScene(scene);
         ctrLogOut.logOut();
     }
-    public static void changeToProjectsDetails(Stage oldstage, Class actual_class, Project project) throws IOException
-    {
-        Stage stage = oldstage;
-
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/ProjectsDetails.fxml"));   
-        loader.setController(new ProjectsDetailsController(stageUser, project));
-        Scene scene = new Scene((Parent) loader.load());
-        stage.setScene(scene);
-    }
 
     public static void changeToCreateProject(Stage oldstage, Class actual_class) throws IOException
     {

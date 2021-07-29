@@ -33,6 +33,16 @@ public class Project {
     public String getId() {
         return this.projectId;
     }
-   
+    public String getCustomer(){
+        return this.customer;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public int getBudget() {
+        return this.budget;
+    }
 
 }
