@@ -42,7 +42,7 @@
 }
 
 .button#btnSignin {
-    -fx-background-color : #203864;
+    -fx-background-color : none;
     -fx-text-fill:  #BDD7EE;
     -fx-border-color: #BDD7EE;
     -fx-border-width : 2px;
