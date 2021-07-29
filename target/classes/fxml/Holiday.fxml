@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #404040;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="13.0" style="-fx-background-color: #595959;" HBox.hgrow="ALWAYS">
                      <children>
@@ -31,7 +31,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="367.0" style="-fx-background-color: #595959;" HBox.hgrow="ALWAYS">
                      <children>
-                        <GridPane prefHeight="30.0" prefWidth="427.0">
+                        <GridPane prefHeight="33.0" prefWidth="531.0">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,7 +42,7 @@
                           </rowConstraints>
                            <children>
                               <Label fx:id="lblUserRef" text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="179.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
@@ -63,19 +63,19 @@
             </HBox>
          </children>
       </AnchorPane>
-      <GridPane layoutX="-3.0" layoutY="29.0" prefHeight="374.0" prefWidth="606.0" style="-fx-background-color: #404040;">
+      <GridPane layoutX="-3.0" layoutY="29.0" prefHeight="474.0" prefWidth="857.0" style="-fx-background-color: #404040;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="28.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="455.0" minWidth="10.0" prefWidth="405.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="167.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="74.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="638.0" minWidth="10.0" prefWidth="486.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="297.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="277.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="388.0" minHeight="10.0" prefHeight="372.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane prefHeight="290.0" prefWidth="421.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane prefHeight="374.0" prefWidth="567.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -91,6 +91,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane">
@@ -268,12 +269,47 @@
                         <Label layoutX="5.0" layoutY="21.0" text="int_day" />
                      </children>
                   </Pane>
+                  <Pane fx:id="pane221" layoutX="10.0" layoutY="268.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane2211" layoutX="10.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane22111" layoutX="92.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane221111" layoutX="174.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane2211111" layoutX="256.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane22111111" layoutX="338.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pane221111111" layoutX="421.0" layoutY="332.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                     <children>
+                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
+                     </children>
+                  </Pane>
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.0" minWidth="3.0" prefWidth="18.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="130.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.0" minWidth="3.0" prefWidth="34.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="183.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="21.0" />
               </columnConstraints>
               <rowConstraints>
@@ -289,10 +325,10 @@
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label fx:id="end_month_day_year" text="month_day_year" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label fx:id="start_month_day_year" text="month_day_year" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="book_holiday" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" styleClass="btnBlue" text="Book" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+                  <Button fx:id="book_holiday" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" styleClass="btnBlue" text="Mark" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
                </children>
             </GridPane>
-            <ChoiceBox fx:id="pick_month" prefWidth="150.0" style="-fx-background-color: #ffffff;" styleClass="txtField" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="pick_month" prefHeight="24.0" prefWidth="191.0" style="-fx-background-color: #ffffff;" styleClass="txtField" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>
