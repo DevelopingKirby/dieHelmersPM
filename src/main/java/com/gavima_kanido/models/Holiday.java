@@ -3,13 +3,15 @@ import java.time.*;
 
 public class Holiday {
 
+    private String userRef;
     private LocalDate startDate;
     private LocalDate endDate;
     private String status;
     private long totalDays;
 
 
-    public Holiday(LocalDate startDate, LocalDate endDate, String status) {
+    public Holiday(String userRef, LocalDate startDate, LocalDate endDate, String status) {
+        this.userRef = userRef;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
@@ -31,8 +33,6 @@ public class Holiday {
 
 
         
-        
-        // (int) ChronoUnit.DAYS.between(startDate, endDate);
         for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
             DayOfWeek d = date.getDayOfWeek();
             
@@ -60,6 +60,10 @@ public class Holiday {
 
     public long getTotalDays() {
         return this.totalDays;
+    }
+
+    public String getUserRef() {
+        return this.userRef;
     }
 
 

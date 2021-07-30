@@ -153,16 +153,14 @@ public class DatabaseOperationUtil {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM personaldata Where team = ?";
+            String sql = "SELECT * FROM personaldata WHERE team = ?";
             conn = ConnectionUtil.getConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, team);
             rs =  ps.executeQuery();
             
             while (rs.next()) {
-                
-                // TO-DO add all set-methods from user
-                // noch anzupassen an User-Klasse
+
                 user.add(new User(rs.getString("userRef"), rs.getString("name"), rs.getString("lastName"), rs.getString("street"), rs.getString("city"), rs.getString("country"), rs.getString("superiorName"), rs.getString("department"), rs.getString("team"), rs.getInt("zip"), rs.getString("phoneNumber"), rs.getString("eMail"))); //TO-DO add properties
             }
                 
@@ -555,7 +553,52 @@ public class DatabaseOperationUtil {
                 rs = ps.executeQuery();
 
             while (rs.next()) {
-                holidays.add(new Holiday(rs.getDate("startDate").toLocalDate(), rs.getDate("endDate").toLocalDate(), rs.getString("status")));
+                holidays.add(new Holiday(rs.getString("userRef"), rs.getDate("startDate").toLocalDate(), rs.getDate("endDate").toLocalDate(), rs.getString("status")));
+            }
+
+                
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return holidays;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return holidays;
+        }
+
+        public static List<Holiday> getHolidaysForTeam(User user) throws SQLException {
+            List<Holiday> holidays = new ArrayList<Holiday>();
+            Connection conn = null;
+            PreparedStatement ps = null;
+            PreparedStatement ps2 = null;
+            ResultSet rs = null;
+            ResultSet rs2 = null;
+            try {
+                String sql = "SELECT * FROM holidayBookings";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                rs = ps.executeQuery();
+
+                String sql2 = "SELECT * FROM personaldata WHERE team = ?";
+                ps2 = conn.prepareStatement(sql2, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ps2.setString(1, user.getTeam());
+                rs2 = ps2.executeQuery();
+
+            while (rs.next()) {
+                while (rs2.next()) {
+
+                    if (rs.getString("userRef").equals(rs2.getString("userRef"))) {
+
+                        holidays.add(new Holiday(rs.getString("userRef"), rs.getDate("startDate").toLocalDate(), rs.getDate("endDate").toLocalDate(), rs.getString("status")));
+                    }
+                }
+                rs2.first();
             }
 
                 

@@ -13,7 +13,7 @@ public class TrackProjectsHandler {
     public List<Project> getProjects(User user) {
         List<Project> userProjects = new ArrayList<Project>();
         try {
-             DatabaseOperationUtil.getProjects(user.getUserRef());
+            userProjects = DatabaseOperationUtil.getProjects(user.getUserRef());
         } catch (SQLException e) {
             e.printStackTrace();
         }

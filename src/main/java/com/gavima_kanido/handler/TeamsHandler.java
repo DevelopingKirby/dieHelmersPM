@@ -42,20 +42,22 @@ public class TeamsHandler {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
-    
-        for (User u : p.getMember()) {
-        
-            if (u.getName().equals(split[1])) {
-                        
-            } else {
+        } else {
+
+            boolean isNotAssigned = true;
+            for (User u : p.getMember()) {
+                if (split[1].equals(u.getName())) {
+                     isNotAssigned = false;
+                }
+            }
+            if (isNotAssigned){
                 try {
-                    dbOperationSuccessful = DatabaseOperationUtil.addToProject(split[1], p.getId());        
+                        dbOperationSuccessful = DatabaseOperationUtil.addToProject(split[1], p.getId());        
                 } catch (SQLException e) {
-                    e.printStackTrace();
-                }            
-            }        
-        }         
+                        e.printStackTrace();
+                }   
+            }
+        }      
         return dbOperationSuccessful;
     }
     

@@ -115,6 +115,9 @@ public class TeamsController {
         else if (event.getSource() == btn_create_project) {
             StageHandler.changeToCreateProject((Stage) btn_create_project.getScene().getWindow(), getClass());
         }
+        else if (event.getSource() == btnReviewHolidays) {
+                StageHandler.changeToHolidayBookingRequest((Stage) btnReviewHolidays.getScene().getWindow(), getClass(), employees);
+        }
         else if (event.getSource() == btnAddToProject) {   
             int dbOperationSuccessful = 0;
 
@@ -136,17 +139,20 @@ public class TeamsController {
                         }
                     }                
                 } else if (checkbox.isSelected() == false) {
-
+                    
                     for (Project p : projects) {
-
+                        
                         if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
                             String[] split = checkbox.getText().toLowerCase().split("\\s+");
-                            dbOperationSuccessful = teamsHandler.addToProject(split, p);
-
+                            System.out.println("Remove");
+                            dbOperationSuccessful = teamsHandler.removeFromProject(split, p);
+                            
                         }
                     }
                 }
+            
             }
+            
             this.projects = teamsHandler.getProjects();
 
             if (dbOperationSuccessful == 1) {

@@ -1,6 +1,7 @@
 package com.gavima_kanido.handler;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.gavima_kanido.controller.*;
 import com.gavima_kanido.models.User;
@@ -114,6 +115,16 @@ public class StageHandler {
 
         FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Login.fxml"));   
         loader.setController(new LoginController());
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToHolidayBookingRequest(Stage oldstage, Class actual_class, List<User> employees) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/HolidayBookingRequests.fxml"));   
+        loader.setController(new HolidayBookingRequestsController(stageUser, employees));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
