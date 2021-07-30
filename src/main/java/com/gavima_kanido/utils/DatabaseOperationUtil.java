@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 
@@ -540,6 +541,38 @@ public class DatabaseOperationUtil {
 
             return hoursWorked;
 		}
+
+        public static List<Holiday> getHolidaysForUserRef(String userRef) throws SQLException {
+            List<Holiday> holidays = new ArrayList<Holiday>();
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            try {
+                String sql = "SELECT * FROM holidayBookings WHERE userRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, userRef);
+                rs = ps.executeQuery();
+
+            while (rs.next()) {
+                holidays.add(new Holiday(rs.getDate("startDate").toLocalDate(), rs.getDate("endDate").toLocalDate(), rs.getString("status")));
+            }
+
+                
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return holidays;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return holidays;
+        }
  
 
 }

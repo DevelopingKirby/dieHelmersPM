@@ -2,15 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
@@ -65,234 +65,47 @@
       </AnchorPane>
       <GridPane layoutX="-3.0" layoutY="29.0" prefHeight="374.0" prefWidth="606.0" style="-fx-background-color: #404040;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="28.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="455.0" minWidth="10.0" prefWidth="405.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="167.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="27.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="455.0" minWidth="10.0" prefWidth="246.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="235.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="69.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="31.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="277.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="264.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="22.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane prefHeight="290.0" prefWidth="421.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Holiday" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblInfo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BASELINE" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday status" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ListView fx:id="listDates" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MON" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="1">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TUE" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="66.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="2">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WED" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="123.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="3">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THU" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="180.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="4">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FRI" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="237.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="5">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SAT" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="weekdayPane" GridPane.columnIndex="6">
-                     <children>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUN" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane1" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane2" layoutX="10.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane3" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane4" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane5" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane6" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane7" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane8" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane9" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane10" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane11" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane12" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane13" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane14" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane15" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane16" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane17" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane18" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane19" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane20" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane21" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane22" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="4.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane23" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane24" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane25" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane26" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane27" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="pane28" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="emptyPane" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                     <children>
-                        <Label layoutX="5.0" layoutY="21.0" text="int_day" />
-                     </children>
-                  </Pane>
+                  <Button fx:id="btnBookHoliday" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="28.0" prefWidth="130.0" styleClass="btnBlue" text="Book" GridPane.rowIndex="2" GridPane.valignment="BASELINE" />
+                  <DatePicker fx:id="datePickerEndDate" GridPane.rowIndex="1" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" GridPane.halignment="LEFT" GridPane.valignment="BASELINE" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
+                  <DatePicker fx:id="datePickerStartDate" />
                </children>
             </GridPane>
-            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.0" minWidth="3.0" prefWidth="18.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="130.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="21.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start:" GridPane.columnIndex="1" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label fx:id="end_month_day_year" text="month_day_year" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label fx:id="start_month_day_year" text="month_day_year" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="book_holiday" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" styleClass="btnBlue" text="Book" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-               </children>
-            </GridPane>
-            <ChoiceBox fx:id="pick_month" prefWidth="150.0" style="-fx-background-color: #ffffff;" styleClass="txtField" GridPane.columnIndex="1" />
+            <ListView fx:id="listStatus" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="lblUserRef1" text="number_holidays" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Available days:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin>
+            </Text>
          </children>
       </GridPane>
    </children>

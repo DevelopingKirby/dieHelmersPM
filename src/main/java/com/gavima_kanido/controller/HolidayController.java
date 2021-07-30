@@ -2,9 +2,15 @@ package com.gavima_kanido.controller;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.gavima_kanido.handler.HolidayHandler;
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.User;
+import com.gavima_kanido.utils.DatabaseOperationUtil;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,101 +27,30 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 
 
 public class HolidayController {
 
     private User user;
+    private List<Holiday> userHolidays = new ArrayList<Holiday>();
+    private HolidayHandler handler = new HolidayHandler();
 
-    public HolidayController(User user) {
+    public HolidayController (User user) {
         this.user = user;
+        try {
+            this.userHolidays = DatabaseOperationUtil.getHolidaysForUserRef(user.getUserRef());
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    private Pane pane1;
-
-    @FXML
-    private Pane pane2;
-
-    @FXML
-    private Pane pane3;
-
-    @FXML
-    private Pane pane4;
-
-    @FXML
-    private Pane pane5;
-
-    @FXML
-    private Pane pane6;
-
-    @FXML
-    private Pane pane7;
-
-    @FXML
-    private Pane pane8;
-
-    @FXML
-    private Pane pane9;
-
-    @FXML
-    private Pane pane10;
-
-    @FXML
-    private Pane pane11;
-
-    @FXML
-    private Pane pane12;
-
-    @FXML
-    private Pane pane13;
-
-    @FXML
-    private Pane pane14;
-
-    @FXML
-    private Pane pane15;
-
-    @FXML
-    private Pane pane16;
-
-    @FXML
-    private Pane pane17;
-
-    @FXML
-    private Pane pane18;
-
-    @FXML
-    private Pane pane19;
-
-    @FXML
-    private Pane pane20;
-
-    @FXML
-    private Pane pane21;
-
-    @FXML
-    private Pane pane22;
-
-    @FXML
-    private Pane pane23;
-
-    @FXML
-    private Pane pane24;
-
-    @FXML
-    private Pane pane25;
-
-    @FXML
-    private Pane pane26;
-
-    @FXML
-    private Pane pane27;
-
-    @FXML
-    private Pane pane28;
+    private Label lblUserRef;
 
     @FXML
     private Button topmenu_dashboard;
@@ -124,19 +59,25 @@ public class HolidayController {
     private Button btnLogout;
 
     @FXML
-    private Label end_month_day_year;
+    private Label lblInfo;
 
     @FXML
-    private Label start_month_day_year;
+    private ListView<?> listDates;
 
     @FXML
-    private Button book_holiday;
+    private Button btnBookHoliday;
 
     @FXML
-    private ChoiceBox<?> pick_month;
-    
+    private DatePicker datePickerEndDate;
+
     @FXML
-    private Label lblUserRef;
+    private DatePicker datePickerStartDate;
+
+    @FXML
+    private ListView<?> listStatus;
+
+    @FXML
+    private Label lblUserRef1;
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -146,6 +87,20 @@ public class HolidayController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
+
+        else if (event.getSource() == btnBookHoliday) {
+            System.out.println(datePickerStartDate.getValue());
+            System.out.println(datePickerEndDate.getValue());
+            int bookholiday = handler.bookHoliday(datePickerStartDate.getValue(), datePickerEndDate.getValue());
+
+            if (bookholiday == 2) {
+                lblInfo.setText("Startdate cannot be after Enddate!");
+            }
+        }
+    }
+
+    public void populateStatusTable() {
+
     }
 
     @FXML

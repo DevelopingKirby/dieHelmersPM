@@ -115,23 +115,6 @@ public class TrackProjectsController {
         }
     }
 
-    // public static void main(String[] args) {
-
-
-
-
-    //     long unixTime = System.currentTimeMillis() / 1000L;
-
-    //     System.out.println(unixTime);
-    //     double diff = (unixTime - 1627589467);
-    //     System.out.println(diff/60);
-    //     double hours = (unixTime - 1627589467)/60.0/60.0;
-
-    //     double roundedHours = Math.round( hours * 100.0) / 100.0;
-
-    //     System.out.println(hours);
-    //     System.out.println(roundedHours);
-    // }
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
