@@ -1,27 +1,12 @@
 package com.gavima_kanido.controller;
-
-
 import java.io.IOException;
-
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.fxml.Initializable;
 
 public class DashboardController {
 

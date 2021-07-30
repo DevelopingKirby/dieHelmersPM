@@ -2,9 +2,11 @@ package com.gavima_kanido.handler;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.gavima_kanido.models.Holiday;
+import com.gavima_kanido.models.User;
 import com.gavima_kanido.utils.DatabaseOperationUtil;
 
 public class HolidayHandler {
@@ -36,6 +38,27 @@ public class HolidayHandler {
         }
 
         return bookSuccessful;
+    }
+
+    public List<Holiday> getHolidaysForUser(User user) {
+        List<Holiday> userHolidays = new ArrayList<Holiday>();
+        try {
+            userHolidays = DatabaseOperationUtil.getHolidaysForUserRef(user.getUserRef());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userHolidays;
+
+    }
+
+    public int getAvailableHolidays(User user) {
+        int availableDaysLeft = 0;
+        try {
+            availableDaysLeft = DatabaseOperationUtil.getAvailableHolidays(user.getUserRef());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return availableDaysLeft;
     }
 
 

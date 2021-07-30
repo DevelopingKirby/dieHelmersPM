@@ -110,11 +110,6 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Button>
-            <Button id="btnManagersView" fx:id="btnReviewHolidays" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="166.0" styleClass="btnBlue" text="Review Holiday Requests" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="BASELINE">
-               <GridPane.margin>
-                  <Insets right="15.0" />
-               </GridPane.margin>
-            </Button>
          </children>
       </GridPane>
    </children>

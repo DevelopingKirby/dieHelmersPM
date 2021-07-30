@@ -21,6 +21,7 @@ public class TimeOverviewController {
 
     private User user;
     private List<Project> userProjects = new ArrayList<Project>();
+    
 
     public TimeOverviewController(User user) {
         this.user = user;

@@ -40,7 +40,7 @@ public class HolidayController {
     private User user;
     private List<Holiday> userHolidays = new ArrayList<Holiday>();
     private int availableDaysLeft;
-    private HolidayHandler handler = new HolidayHandler();
+    private HolidayHandler holidayHandler = new HolidayHandler();
 
     public HolidayController (User user) {
         this.user = user;
@@ -87,7 +87,7 @@ public class HolidayController {
         }
 
         else if (event.getSource() == btnBookHoliday) {
-            int bookholiday = handler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
+            int bookholiday = holidayHandler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
 
             if (bookholiday == 1) {
                 lblInfo.setTextFill(Color.GREEN);
@@ -118,12 +118,7 @@ public class HolidayController {
     }
 
     public void populateStatusTable() {
-        try {
-            this.userHolidays = DatabaseOperationUtil.getHolidaysForUserRef(user.getUserRef());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.userHolidays = holidayHandler.getHolidaysForUser(user);
         listDates.getItems().clear();
         listStatus.getItems().clear();
 
@@ -138,13 +133,7 @@ public class HolidayController {
     }
 
     public void populateAvailableDays() {
-        try {
-            this.availableDaysLeft = DatabaseOperationUtil.getAvailableHolidays(user.getUserRef());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        
+        this.availableDaysLeft = holidayHandler.getAvailableHolidays(user);        
         lblAvailableDays.setText(Integer.toString(availableDaysLeft));
     }
 

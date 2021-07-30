@@ -1,11 +1,7 @@
 package com.gavima_kanido.controller;
-
-import java.io.IOException;
-
+import com.gavima_kanido.handler.CreateProjectHandler;
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.utils.DatabaseOperationUtil;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,6 +13,7 @@ import javafx.stage.Stage;
 public class CreateProjectController {
 
     private User user;
+    private CreateProjectHandler createProjectHandler = new CreateProjectHandler();
 
     public CreateProjectController(User user) {
         this.user = user;
@@ -66,20 +63,21 @@ public class CreateProjectController {
             StageHandler.changeToTrackProjects((Stage) topmenu_trackprojects.getScene().getWindow(), getClass());
         }
         else if (event.getSource() == btn_save_project){
-            if (customer_name_input.getText().isEmpty() || customer_name_input.getText().isEmpty() || project_description_input.getText().isEmpty() || project_budget_input.getText().isEmpty() || !(project_budget_input.getText().matches("-?\\d+"))){
-                lblInfo.setTextFill(Color.TOMATO);
+
+            int creationSuccessful = createProjectHandler.createProject(project_name_input.getText(), customer_name_input.getText(), project_description_input.getText(), Integer.parseInt(project_budget_input.getText()));
+
+            if ( creationSuccessful == 2 ) {
+                lblInfo.setTextFill(Color.YELLOW);
                 lblInfo.setText("all fields has to be filled\nand budget field has to\nbe an Int");
             }
-            else
-            {
-                if (DatabaseOperationUtil.addProject(customer_name_input.getText(), customer_name_input.getText(), project_description_input.getText(), Integer.parseInt(project_budget_input.getText())) == 0){
-                    lblInfo.setTextFill(Color.TOMATO);
-                    lblInfo.setText("adding project failed");
-                }
-                else{
-                    lblInfo.setTextFill(Color.GREEN);
-                    lblInfo.setText("added project successfully");
-                }
+            else if ( creationSuccessful == 0) {
+            
+            lblInfo.setTextFill(Color.TOMATO);
+                    lblInfo.setText("adding project failed");    
+            } 
+            else if ( creationSuccessful == 1) {
+                lblInfo.setTextFill(Color.GREEN);
+                lblInfo.setText("added project \nsuccessfully");
             }
         }
            
