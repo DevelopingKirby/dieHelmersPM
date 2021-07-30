@@ -1,19 +1,8 @@
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import com.gavima_kanido.handler.StageHandler;
-import com.gavima_kanido.models.Database;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.utils.DatabaseOperationUtil;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,7 +11,7 @@ import javafx.stage.Stage;
 
 public class PersonalDataController {
 
-    private User user;
+    private User user; 
 
     public PersonalDataController(User user) {
         this.user = user;

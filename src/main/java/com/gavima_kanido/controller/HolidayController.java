@@ -2,7 +2,6 @@ package com.gavima_kanido.controller;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,27 +10,13 @@ import com.gavima_kanido.handler.HolidayHandler;
 import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.utils.DatabaseOperationUtil;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 

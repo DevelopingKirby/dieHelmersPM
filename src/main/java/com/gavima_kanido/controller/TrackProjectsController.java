@@ -1,25 +1,19 @@
-
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.handler.TrackProjectsHandler;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.utils.DatabaseOperationUtil;
 import com.gavima_kanido.models.Project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -28,27 +22,14 @@ public class TrackProjectsController {
 
     private User user;
     private List<Project> userProjects = new ArrayList<Project>();
+    private TrackProjectsHandler trackProjectsHandler = new TrackProjectsHandler();
+
 
     public TrackProjectsController(User user) {
         this.user = user;
-        try {
-            this.userProjects = DatabaseOperationUtil.getProjects(user.getUserRef());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.userProjects = trackProjectsHandler.getProjects(user);
     }
 
-    public void wait(int ms) {
-        try
-            {
-              Thread.sleep(ms);
-            }
-        catch(InterruptedException ex)
-            {
-                Thread.currentThread().interrupt();
-            }
-    }
 
     @FXML
     private Label lblUserRef;
@@ -104,13 +85,7 @@ public class TrackProjectsController {
                 lblCustomer.setText(p.getCustomer());
                 lblBudget.setText(Integer.toString(p.getBudget()));
                 lblDescription.setText(p.getDescription());
-                try {
-                    totalTimeSpent.setText(String.valueOf(DatabaseOperationUtil.getHoursWorkedOnProject(user.getUserRef(), p.getId())) + " h");
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
+                totalTimeSpent.setText(trackProjectsHandler.getHoursWorkedOnProject(user, p) + " h");
             }
         }
     }
@@ -137,19 +112,11 @@ public class TrackProjectsController {
                 if (p.getName().equals(comboBoxProject.getSelectionModel().getSelectedItem())) {
                     lblTimeInfo.setTextFill(Color.GREEN);
                     lblTimeInfo.setText("Time tracking is running...");
-                    try {
-                        dbOperationWorked =  DatabaseOperationUtil.addStartTimeForProject(user.getUserRef(), p.getId());
+                    
+                        dbOperationWorked =  trackProjectsHandler.startTime(user, p);
                         if (dbOperationWorked == 0) {
                             lblTimeInfo.setText("Time tracking already started!");
                         }
-    
-
-                    } catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-
     
                 }
             }       
@@ -162,27 +129,14 @@ public class TrackProjectsController {
                     lblTimeInfo.setTextFill(Color.YELLOW);
                     lblTimeInfo.setText("Time tracking stopped!");
                     
-                    try {
-                        dbOperationWorked = DatabaseOperationUtil.addEndTimeForProject(user.getUserRef(), p.getId());
+                        dbOperationWorked = trackProjectsHandler.stopTime(user, p);
                         if (dbOperationWorked == 1) {
-                            try {
-                                totalTimeSpent.setText(String.valueOf(DatabaseOperationUtil.getHoursWorkedOnProject(user.getUserRef(), p.getId())) + " h");
-                            } catch (SQLException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
+                            totalTimeSpent.setText(trackProjectsHandler.getHoursWorkedOnProject(user, p) + " h");
                         }
-                        else{
+                        else {
                             lblTimeInfo.setTextFill(Color.YELLOW);
                             lblTimeInfo.setText("Time tracking hasn't started!");
                         }
-    
-
-                    } catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
 
                 }
             }

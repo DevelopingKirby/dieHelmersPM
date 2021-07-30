@@ -1,15 +1,11 @@
 package com.gavima_kanido.controller;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.handler.TeamsHandler;
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
-import com.gavima_kanido.utils.DatabaseOperationUtil;
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
-
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,16 +25,12 @@ public class TeamsController {
 
     private List<User> employees = new ArrayList<User>();
     private List<Project> projects = new ArrayList<Project>();
+    private TeamsHandler teamsHandler = new TeamsHandler();
 
     public TeamsController(User user) {
         this.user = user;
-        try {
-            this.employees = DatabaseOperationUtil.getTeamMembers(user.getTeam());
-            this.projects = DatabaseOperationUtil.getProjects();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        this.employees = teamsHandler.getTeamMembers(user);
+        this.projects = teamsHandler.getProjects();
     }
 
 
@@ -87,49 +79,27 @@ public class TeamsController {
         for (MenuItem m : employeesInProjects) {
 
             CustomMenuItem menuItem = ((CustomMenuItem) m);
-
             CheckBox checkbox = (CheckBox) menuItem.getContent();
-
             checkbox.setSelected(false);
-
         }
 
         for (Project p : projects) {
             if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
-                
-
                 for (User u : employees) {
-
                     for (User u2 : p.getMember()) {
-
-
-
                         if (u.getUserRef().equals(u2.getUserRef())) {
-
                             for (MenuItem m : employeesInProjects) {
-
-                                CustomMenuItem menuItem = ((CustomMenuItem) m);
-                
+                                CustomMenuItem menuItem = ((CustomMenuItem) m);                
                                 CheckBox checkbox = (CheckBox) menuItem.getContent();
-
                                 if (checkbox.getText().toLowerCase().equals(u2.getFirstName() + " " + u2.getName())) {
                                     checkbox.setSelected(true);
                                 }
-
-                
                             }
-
                         }
-
                     }
-
                 }
-
             }
         }
-
-        
-    
     }
   
 
@@ -142,15 +112,12 @@ public class TeamsController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
-
         else if (event.getSource() == btn_create_project) {
             StageHandler.changeToCreateProject((Stage) btn_create_project.getScene().getWindow(), getClass());
         }
-
         else if (event.getSource() == btnAddToProject) {   
-            lblInfo.setTextFill(Color.GREEN);
-            lblInfo.setText("loading...");    
-            System.out.println("loading...");     
+            int dbOperationSuccessful = 0;
+
             ObservableList<MenuItem> employeesInProjects =  employeeMenuButton.getItems();
             
             for (MenuItem m : employeesInProjects) {
@@ -164,83 +131,27 @@ public class TeamsController {
                     for (Project p : projects) {
 
                         if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
-                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
-
-                            if (p.getMember().isEmpty()) {
-                                    try {
-                                        DatabaseOperationUtil.addToProject(split[1], p.getId());
-                                    } catch (SQLException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                    }
-                            }
-
-                            for (User u : p.getMember()) {
-
-                                if (u.getName().equals(split[1])) {
-
-                                    System.out.println("User already in Project");
-
-                                } else {
-                                    try {
-                                        DatabaseOperationUtil.addToProject(split[1], p.getId());        
-                                    } catch (SQLException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                    }
-
-                                }
-
-                            }
-
-
-
-
+                            String[] split = checkbox.getText().toLowerCase().split("\\s+");
+                            dbOperationSuccessful = teamsHandler.addToProject(split, p);
                         }
-
-                    }
-                
+                    }                
                 } else if (checkbox.isSelected() == false) {
 
                     for (Project p : projects) {
 
                         if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
-
-                            for (User u : p.getMember()) {
-
-                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
-   
-
-                                if (u.getName().equals(split[1])) {
-                                    try {
-                                        DatabaseOperationUtil.removeFromProject(split[1], p.getId());
-                                        
-                                    } catch (SQLException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                    }
-    
-                                }
-    
-                            }
-
+                            String[] split = checkbox.getText().toLowerCase().split("\\s+");
+                            dbOperationSuccessful = teamsHandler.addToProject(split, p);
 
                         }
-
                     }
-
                 }
-
-
-
             }
+            this.projects = teamsHandler.getProjects();
 
-            lblInfo.setText("");
-            try {
-                this.projects = DatabaseOperationUtil.getProjects();
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            if (dbOperationSuccessful == 1) {
+                lblInfo.setTextFill(Color.GREEN);
+                lblInfo.setText("Successfully saved Project configuration");
             }
 
         } 

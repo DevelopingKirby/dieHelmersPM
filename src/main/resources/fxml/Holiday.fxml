@@ -92,10 +92,10 @@
               </rowConstraints>
                <children>
                   <Button fx:id="btnBookHoliday" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="28.0" prefWidth="130.0" styleClass="btnBlue" text="Book" GridPane.rowIndex="2" GridPane.valignment="BASELINE" />
-                  <DatePicker fx:id="datePickerEndDate" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="datePickerEndDate" editable="false" GridPane.rowIndex="1" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" GridPane.halignment="LEFT" GridPane.valignment="BASELINE" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
-                  <DatePicker fx:id="datePickerStartDate" />
+                  <DatePicker fx:id="datePickerStartDate" editable="false" />
                   <Label fx:id="lblInfo" textFill="WHITE" GridPane.rowIndex="2">
                      <opaqueInsets>
                         <Insets />

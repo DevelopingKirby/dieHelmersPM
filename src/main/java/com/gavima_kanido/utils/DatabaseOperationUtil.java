@@ -12,8 +12,6 @@ import java.util.List;
 import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
-import java.time.temporal.ChronoUnit;
-
 public class DatabaseOperationUtil {
 
     public static String getPasswordToken(String email) throws SQLException {
@@ -593,7 +591,22 @@ public class DatabaseOperationUtil {
                 while (rs.next()) {
                     if (rs.getInt("availableDays") > 0) {
 
-                        int totalDaysBetween = (int) ChronoUnit.DAYS.between(startDate, endDate);
+                        int totalDaysBetween = 0;
+                        
+
+                        if (endDate.getDayOfWeek() == DayOfWeek.SATURDAY || endDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+                            for (LocalDate date = startDate; date.isBefore(endDate) ; date = date.plusDays(1)) {
+                
+                                totalDaysBetween += 1; 
+                    
+                            }
+                        } else {
+                            for (LocalDate date = startDate; !date.isAfter(endDate) ; date = date.plusDays(1)) {
+                
+                                totalDaysBetween += 1; 
+                    
+                            }
+                        }
 
                         for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
                             DayOfWeek d = date.getDayOfWeek();
@@ -613,7 +626,7 @@ public class DatabaseOperationUtil {
                             ps.setString(1, userRef);
                             ps.setDate(2, Date.valueOf(startDate));
                             ps.setDate(3, Date.valueOf(endDate));
-                            ps.setString(4, "Open");
+                            ps.setString(4, "Pending");
                             row = ps.executeUpdate();
             
                             sql = "UPDATE holidays SET availableDays = ? WHERE userRef = ?";
