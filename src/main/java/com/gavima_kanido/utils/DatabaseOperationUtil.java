@@ -4,6 +4,7 @@
 package com.gavima_kanido.utils;
 
 import java.sql.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -592,7 +593,18 @@ public class DatabaseOperationUtil {
                 while (rs.next()) {
                     if (rs.getInt("availableDays") > 0) {
 
-                        if (rs.getInt("availableDays") - (int) ChronoUnit.DAYS.between(startDate, endDate) < 0) {
+                        int totalDaysBetween = (int) ChronoUnit.DAYS.between(startDate, endDate);
+
+                        for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
+                            DayOfWeek d = date.getDayOfWeek();
+                            
+                            if (d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY) {
+                                totalDaysBetween -= 1;
+                            }
+
+                        }
+
+                        if (rs.getInt("availableDays") - totalDaysBetween < 0) {
                             row = 5;
                         } else {
     
@@ -606,7 +618,7 @@ public class DatabaseOperationUtil {
             
                             sql = "UPDATE holidays SET availableDays = ? WHERE userRef = ?";
                             ps = conn.prepareStatement(sql);
-                            ps.setInt(1, rs.getInt("availableDays") - (int) ChronoUnit.DAYS.between(startDate, endDate));
+                            ps.setInt(1, rs.getInt("availableDays") - totalDaysBetween);
                             ps.setString(2, userRef);
                             row = ps.executeUpdate();
                         }

@@ -20,7 +20,7 @@ public class HolidayHandler {
         
         } else {
 
-            if (startDate.isAfter(today) || endDate.isAfter(today)) {
+            if (startDate.isBefore(today) || endDate.isBefore(today)) {
 
                 bookSuccessful = 2;
 

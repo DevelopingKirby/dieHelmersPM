@@ -16,7 +16,16 @@ public class Holiday {
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
-        this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
+        int totalDaysBetween = (int) ChronoUnit.DAYS.between(startDate, endDate);
+        for (LocalDate date = startDate; date.isBefore(endDate); date = date.plusDays(1)) {
+            DayOfWeek d = date.getDayOfWeek();
+            
+            if (d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY) {
+                totalDaysBetween -= 1;
+            }
+
+        }
+        this.totalDays = totalDaysBetween;
     }
 
 
