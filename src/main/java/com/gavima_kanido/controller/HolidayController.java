@@ -3,6 +3,7 @@ package com.gavima_kanido.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,22 +32,19 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 
 public class HolidayController {
 
     private User user;
     private List<Holiday> userHolidays = new ArrayList<Holiday>();
+    private int availableDaysLeft;
     private HolidayHandler handler = new HolidayHandler();
 
     public HolidayController (User user) {
         this.user = user;
-        try {
-            this.userHolidays = DatabaseOperationUtil.getHolidaysForUserRef(user.getUserRef());
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
     }
 
     @FXML
@@ -62,7 +60,7 @@ public class HolidayController {
     private Label lblInfo;
 
     @FXML
-    private ListView<?> listDates;
+    private ListView<String> listDates;
 
     @FXML
     private Button btnBookHoliday;
@@ -74,10 +72,10 @@ public class HolidayController {
     private DatePicker datePickerStartDate;
 
     @FXML
-    private ListView<?> listStatus;
+    private ListView<String> listStatus;
 
     @FXML
-    private Label lblUserRef1;
+    private Label lblAvailableDays;
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -89,23 +87,71 @@ public class HolidayController {
         }
 
         else if (event.getSource() == btnBookHoliday) {
-            System.out.println(datePickerStartDate.getValue());
-            System.out.println(datePickerEndDate.getValue());
-            int bookholiday = handler.bookHoliday(datePickerStartDate.getValue(), datePickerEndDate.getValue());
+            int bookholiday = handler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
 
-            if (bookholiday == 2) {
-                lblInfo.setText("Startdate cannot be after Enddate!");
+            if (bookholiday == 1) {
+                lblInfo.setTextFill(Color.GREEN);
+                lblInfo.setText("Saved Holiday request");
+                populateStatusTable();
+                populateAvailableDays();
+
+            } 
+            else if (bookholiday == 2) {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("Neither Startdate nor Enddate can be \nin the past!");
+            } 
+            else if (bookholiday == 3) {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("Enddate cannot be before Startdate");
+            }
+
+            else if (bookholiday == 4) {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("No more available Days left!");
+            }
+
+            else if (bookholiday == 5) {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("Booking request exceeds available Days!");
             }
         }
     }
 
     public void populateStatusTable() {
+        try {
+            this.userHolidays = DatabaseOperationUtil.getHolidaysForUserRef(user.getUserRef());
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        listDates.getItems().clear();
+        listStatus.getItems().clear();
 
+        for (Holiday h : userHolidays) {
+
+        
+            listDates.getItems().add(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n" + "Total Days: " + Long.toString(h.getTotalDays()));
+            listStatus.getItems().addAll(h.getStatus() + "\n" + " ");
+
+        }
+
+    }
+
+    public void populateAvailableDays() {
+        try {
+            this.availableDaysLeft = DatabaseOperationUtil.getAvailableHolidays(user.getUserRef());
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        lblAvailableDays.setText(Integer.toString(availableDaysLeft));
     }
 
     @FXML
     public void initialize(){
-        
+        populateStatusTable();
+        populateAvailableDays();
         lblUserRef.setText(user.getUserRef());
     }
 

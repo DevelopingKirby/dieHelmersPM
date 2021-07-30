@@ -79,7 +79,6 @@
         </rowConstraints>
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Holiday" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lblInfo" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BASELINE" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Holiday status" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ListView fx:id="listDates" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -97,10 +96,18 @@
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" GridPane.halignment="LEFT" GridPane.valignment="BASELINE" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
                   <DatePicker fx:id="datePickerStartDate" />
+                  <Label fx:id="lblInfo" textFill="WHITE" GridPane.rowIndex="2">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets top="40.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
             <ListView fx:id="listStatus" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label fx:id="lblUserRef1" text="number_holidays" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="lblAvailableDays" text="number_holidays" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Available days:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />

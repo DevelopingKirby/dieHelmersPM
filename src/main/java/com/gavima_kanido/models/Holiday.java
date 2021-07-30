@@ -1,6 +1,7 @@
 package com.gavima_kanido.models;
 
 import java.sql.Date;
+import java.time.temporal.ChronoUnit;
 import java.time.*;
 
 public class Holiday {
@@ -15,7 +16,7 @@ public class Holiday {
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
-        this.totalDays = Duration.between(startDate, endDate).toDays();
+        this.totalDays = ChronoUnit.DAYS.between(startDate, endDate);
     }
 
 
@@ -30,6 +31,10 @@ public class Holiday {
 
     public String getStatus() {
         return this.status;
+    }
+
+    public long getTotalDays() {
+        return this.totalDays;
     }
 
 

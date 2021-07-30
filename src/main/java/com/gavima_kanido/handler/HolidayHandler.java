@@ -1,19 +1,43 @@
 package com.gavima_kanido.handler;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
+
+import com.gavima_kanido.models.Holiday;
+import com.gavima_kanido.utils.DatabaseOperationUtil;
 
 public class HolidayHandler {
 
-    public int bookHoliday(LocalDate startDate, LocalDate endDate) {
+    public int bookHoliday(String userRef, LocalDate startDate, LocalDate endDate) {
         int bookSuccessful = 0;
+        LocalDate today = LocalDate.now();
         // Logik
-        if(endDate.after(startDate) && startDate.before(endDate)) {
+        if(startDate.isAfter(endDate)) {
 
-            int = DatabaseOperationUtil.bookHoliday()
+            bookSuccessful = 3;
 
+        
         } else {
-            return bookSuccessful = 2;
+
+            if (startDate.isAfter(today) || endDate.isAfter(today)) {
+
+                bookSuccessful = 2;
+
+            } else {
+                try {
+                    bookSuccessful = DatabaseOperationUtil.bookHoliday(userRef, startDate, endDate);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            
         }
+
+        return bookSuccessful;
     }
+
+
     
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
+import java.time.temporal.ChronoUnit;
 
 public class DatabaseOperationUtil {
 
@@ -572,6 +573,95 @@ public class DatabaseOperationUtil {
             }
 
             return holidays;
+        }
+
+        public static int bookHoliday(String userRef, LocalDate startDate, LocalDate endDate) throws SQLException {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            int row = 0;
+            ResultSet rs = null;
+
+            try {
+ 
+                String sql = "SELECT * FROM holidays WHERE userRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, userRef);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    if (rs.getInt("availableDays") > 0) {
+
+                        if (rs.getInt("availableDays") - (int) ChronoUnit.DAYS.between(startDate, endDate) < 0) {
+                            row = 5;
+                        } else {
+    
+                            sql = "INSERT INTO holidayBookings (userRef, startDate, endDate, status) VALUES (?, ?, ?, ?)";
+                            ps = conn.prepareStatement(sql);
+                            ps.setString(1, userRef);
+                            ps.setDate(2, Date.valueOf(startDate));
+                            ps.setDate(3, Date.valueOf(endDate));
+                            ps.setString(4, "Open");
+                            row = ps.executeUpdate();
+            
+                            sql = "UPDATE holidays SET availableDays = ? WHERE userRef = ?";
+                            ps = conn.prepareStatement(sql);
+                            ps.setInt(1, rs.getInt("availableDays") - (int) ChronoUnit.DAYS.between(startDate, endDate));
+                            ps.setString(2, userRef);
+                            row = ps.executeUpdate();
+                        }
+    
+        
+                    } else {
+                        row = 4;
+                    }
+                }
+     
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return row;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return row;
+        }
+
+        public static int getAvailableHolidays(String userRef) throws SQLException {
+            int leftDays = -1;
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            try {
+                String sql = "SELECT * FROM holidays WHERE userRef = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, userRef);
+                rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    leftDays = rs.getInt("availableDays");
+                }
+
+                
+            } catch (SQLException  e) {
+                System.err.println(e);
+                return leftDays;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return leftDays;
         }
  
 
