@@ -68,16 +68,16 @@ public class CreateProjectController {
 
             if ( creationSuccessful == 2 ) {
                 lblInfo.setTextFill(Color.YELLOW);
-                lblInfo.setText("all fields has to be filled\nand budget field has to\nbe an Int");
+                lblInfo.setText("All fields have to be filled\nand the budget field has to\nbe a Number");
             }
             else if ( creationSuccessful == 0) {
             
             lblInfo.setTextFill(Color.TOMATO);
-                    lblInfo.setText("adding project failed");    
+                    lblInfo.setText("Adding project failed");    
             } 
             else if ( creationSuccessful == 1) {
                 lblInfo.setTextFill(Color.GREEN);
-                lblInfo.setText("added project \nsuccessfully");
+                lblInfo.setText("Added project\nsuccessfully");
             }
         }
            

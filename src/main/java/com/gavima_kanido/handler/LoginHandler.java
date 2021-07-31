@@ -24,14 +24,10 @@ public class LoginHandler {
                 
                 
                 userRef = DatabaseOperationUtil.getUserRef(email, hashUtil.hash(password));
-
-                System.out.println("Wir sind sehr sehr geile typen!");
-
                 user = DatabaseOperationUtil.getPerson(userRef);
                 
 
             } else {
-                System.out.println("Wir wurden nicht authenticated aber irgendwie hat die Datenbankabfrage geklappt lol");
                 return null;
             }
         } catch (SQLException e) {

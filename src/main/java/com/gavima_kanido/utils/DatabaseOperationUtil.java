@@ -572,7 +572,7 @@ public class DatabaseOperationUtil {
             return holidays;
         }
 
-        public static List<Holiday> getHolidaysForTeam(User user) throws SQLException {
+        public static List<Holiday> getOpenHolidaysForTeam(User user) throws SQLException {
             List<Holiday> holidays = new ArrayList<Holiday>();
             Connection conn = null;
             PreparedStatement ps = null;
@@ -580,25 +580,34 @@ public class DatabaseOperationUtil {
             ResultSet rs = null;
             ResultSet rs2 = null;
             try {
-                String sql = "SELECT * FROM holidayBookings";
+                String sql = "SELECT * FROM holidayBookings WHERE status = ?";
                 conn = ConnectionUtil.getConnection();
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ps.setString(1, "Pending");
                 rs = ps.executeQuery();
 
                 String sql2 = "SELECT * FROM personaldata WHERE team = ?";
                 ps2 = conn.prepareStatement(sql2, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ps2.setString(1, user.getTeam());
                 rs2 = ps2.executeQuery();
+// while (rs.next()){
+//     System.out.println("Resultset 1: " + rs.getString("userRef"));
+// }
+// while (rs2.next()){
+//     System.out.println("Resultset 2: " + rs2.getString("userRef"));
+// }
 
-            while (rs.next()) {
-                while (rs2.next()) {
-
+            while (rs2.next()) {
+                while (rs.next()) {
+                    System.out.println("Resultset 1: " + rs.getString("userRef"));
+                    System.out.println("Resultset 2: " + rs2.getString("userRef"));
+                    System.out.println("---");
                     if (rs.getString("userRef").equals(rs2.getString("userRef"))) {
 
                         holidays.add(new Holiday(rs.getString("userRef"), rs.getDate("startDate").toLocalDate(), rs.getDate("endDate").toLocalDate(), rs.getString("status")));
                     }
                 }
-                rs2.first();
+                rs.beforeFirst();
             }
 
                 
@@ -731,6 +740,73 @@ public class DatabaseOperationUtil {
 
             return leftDays;
         }
- 
+
+        public static int allowHolidayBooking(String userRef, LocalDate startDate, LocalDate endDate) throws SQLException{
+            int dbOperationSuccessful = 0;
+            Connection conn = null;
+            PreparedStatement ps = null;
+            try {
+
+                String sql = "UPDATE holidayBookings SET status = ? WHERE userRef = ? AND startDate = ? AND endDate = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, "Allowed");
+                ps.setString(2, userRef);
+                ps.setDate(3, Date.valueOf(startDate));
+                ps.setDate(4, Date.valueOf(endDate));
+                dbOperationSuccessful = ps.executeUpdate();                
+
+            } catch (SQLException e) {
+                System.err.println(e);
+                return dbOperationSuccessful;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return dbOperationSuccessful;
+        }
+
+        public static int denyHolidayBooking(String userRef, LocalDate startDate, LocalDate endDate, int totalDays) throws SQLException{
+            int dbOperationSuccessful = 0;
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            try {
+
+                String sql = "UPDATE holidayBookings SET status = ? WHERE userRef = ? AND startDate = ? AND endDate = ?";
+                conn = ConnectionUtil.getConnection();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, "Denied");
+                ps.setString(2, userRef);
+                ps.setDate(3, Date.valueOf(startDate));
+                ps.setDate(4, Date.valueOf(endDate));
+                ps.executeUpdate();
+
+                sql = "UPDATE holidays SET availableDays = availableDays + ? WHERE userRef = ?";
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1, totalDays);
+                ps.setString(2, userRef);
+                dbOperationSuccessful = ps.executeUpdate();
+
+            } catch (SQLException e) {
+                System.err.println(e);
+                return dbOperationSuccessful;
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+
+            return dbOperationSuccessful;
+        }
+    
 
 }

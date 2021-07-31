@@ -123,38 +123,43 @@ public class TeamsController {
 
             ObservableList<MenuItem> employeesInProjects =  employeeMenuButton.getItems();
             
-            for (MenuItem m : employeesInProjects) {
+            if(projectsComboBox.getSelectionModel().getSelectedItem() != null) {
+                for (MenuItem m : employeesInProjects) {
 
-                CustomMenuItem menuItem = ((CustomMenuItem) m);
-
-                CheckBox checkbox = (CheckBox) menuItem.getContent();
-
-                if (checkbox.isSelected() == true) {
-
-                    for (Project p : projects) {
-
-                        if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
-                            String[] split = checkbox.getText().toLowerCase().split("\\s+");
-                            dbOperationSuccessful = teamsHandler.addToProject(split, p);
-                        }
-                    }                
-                } else if (checkbox.isSelected() == false) {
-                    
-                    for (Project p : projects) {
+                    CustomMenuItem menuItem = ((CustomMenuItem) m);
+    
+                    CheckBox checkbox = (CheckBox) menuItem.getContent();
+    
+                    if (checkbox.isSelected() == true) {
+    
+                        for (Project p : projects) {
+    
+                            if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
+                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
+                                dbOperationSuccessful = teamsHandler.addToProject(split, p);
+                            }
+                        }                
+                    } else if (checkbox.isSelected() == false) {
                         
-                        if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
-                            String[] split = checkbox.getText().toLowerCase().split("\\s+");
-                            System.out.println("Remove");
-                            dbOperationSuccessful = teamsHandler.removeFromProject(split, p);
+                        for (Project p : projects) {
                             
+                            if (p.getName().equals(projectsComboBox.getSelectionModel().getSelectedItem())) {
+                                String[] split = checkbox.getText().toLowerCase().split("\\s+");
+                                System.out.println("Remove");
+                                dbOperationSuccessful = teamsHandler.removeFromProject(split, p);
+                                
+                            }
                         }
                     }
-                }
-            
+                
+                } 
+                this.projects = teamsHandler.getProjects();
+            } else {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("Please select a Project to assign Employees!");
             }
             
-            this.projects = teamsHandler.getProjects();
-
+            
             if (dbOperationSuccessful == 1) {
                 lblInfo.setTextFill(Color.GREEN);
                 lblInfo.setText("Successfully saved Project configuration");
