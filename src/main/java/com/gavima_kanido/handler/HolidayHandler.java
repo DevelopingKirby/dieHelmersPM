@@ -30,7 +30,6 @@ public class HolidayHandler {
                 try {
                     bookSuccessful = DatabaseOperationUtil.bookHoliday(userRef, startDate, endDate);
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }

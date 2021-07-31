@@ -11,12 +11,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 import com.gavima_kanido.handler.HolidayBookingRequestsHandler;
+import com.gavima_kanido.handler.StageHandler;
 import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.User;
 
@@ -83,14 +87,20 @@ public class HolidayBookingRequestsController {
     }
 
     @FXML
-    void handleButtonAction(MouseEvent event) {
+    void handleButtonAction(MouseEvent event) throws IOException {
 
-        if (event.getSource() == btnAllow) {
+        if (event.getSource() == topmenu_dashboard) {
+            StageHandler.changeToDashboard((Stage) topmenu_dashboard.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnLogout) {
+            StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
+        }
+        else if (event.getSource() == btnAllow) {
             int dbOperationSuccessful = 0;
 
-            ObservableList<MenuItem> holidaysInMyTeam =  requestsMenuButton.getItems();
+            ObservableList<MenuItem> listHolidayRequestsFromUser =  requestsMenuButton.getItems();
             
-            for (MenuItem m : holidaysInMyTeam) {
+            for (MenuItem m : listHolidayRequestsFromUser) {
 
                 CustomMenuItem menuItem = ((CustomMenuItem) m);
 
@@ -98,14 +108,58 @@ public class HolidayBookingRequestsController {
 
                 if (checkbox.isSelected() == true) {
 
-               
-                    
+                   for (Holiday h : teamMemberHolidays) {
+                        String[] split = checkbox.getText().toLowerCase().split("\\n");
+                        if (split[0].equals(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))) {
+                           dbOperationSuccessful = holidayBookingRequestsHandler.allowHolidayBooking(h);                        
+                       }
+                   }           
+                }             
+            }
 
-                } 
-            
+            if (dbOperationSuccessful == 1) {
+                lblInfo.setTextFill(Color.GREEN);
+                lblInfo.setText("Successfully saved allowed Holiday!");
+                this.teamMemberHolidays = holidayBookingRequestsHandler.getTeamMembersHoliday(user);
+                populateEmployeeList();
+            } else {
+                lblInfo.setTextFill(Color.TOMATO);
+                lblInfo.setText("An error occurred while trying to save holiday!");
             }
         }
 
+        else if (event.getSource() == btnDeny) {
+            int dbOperationSuccessful = 0;
+
+            ObservableList<MenuItem> listHolidayRequestsFromUser =  requestsMenuButton.getItems();
+            
+            for (MenuItem m : listHolidayRequestsFromUser) {
+
+                CustomMenuItem menuItem = ((CustomMenuItem) m);
+
+                CheckBox checkbox = (CheckBox) menuItem.getContent();
+
+                if (checkbox.isSelected() == true) {
+
+                   for (Holiday h : teamMemberHolidays) {
+                        String[] split = checkbox.getText().toLowerCase().split("\\n");
+                        if (split[0].equals(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))) {
+                           dbOperationSuccessful = holidayBookingRequestsHandler.denyHolidayBooking(h);
+                       }
+                   }                             
+                }   
+            }
+            if (dbOperationSuccessful == 1) {
+                lblInfo.setTextFill(Color.GREEN);
+                lblInfo.setText("Successfully saved denied Holiday!");
+                this.teamMemberHolidays = holidayBookingRequestsHandler.getTeamMembersHoliday(user);
+                populateEmployeeList();
+            } 
+            else {
+                lblInfo.setTextFill(Color.TOMATO);
+                lblInfo.setText("An error occured while trying to save holiday!");
+            }  
+        }
     }
 
     public void populateEmployeeList() {
@@ -118,6 +172,7 @@ public class HolidayBookingRequestsController {
 
     public void initialize() {
         populateEmployeeList();
+        requestsMenuButton.getItems().clear();
         lblUserRef.setText(user.getUserRef());
         lblTeamName.setText(user.getTeam());
     }

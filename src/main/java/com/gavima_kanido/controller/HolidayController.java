@@ -56,8 +56,8 @@ public class HolidayController {
     @FXML
     private DatePicker datePickerStartDate;
 
-    @FXML
-    private ListView<String> listStatus;
+    // @FXML
+    // private ListView<String> listStatus;
 
     @FXML
     private Label lblAvailableDays;
@@ -72,46 +72,53 @@ public class HolidayController {
         }
 
         else if (event.getSource() == btnBookHoliday) {
-            int bookholiday = holidayHandler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
 
-            if (bookholiday == 1) {
-                lblInfo.setTextFill(Color.GREEN);
-                lblInfo.setText("Saved Holiday request");
-                populateStatusTable();
-                populateAvailableDays();
+            if (datePickerStartDate.getValue() != null && datePickerEndDate.getValue() != null) {
+                int bookholiday = holidayHandler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
 
-            } 
-            else if (bookholiday == 2) {
+                if (bookholiday == 1) {
+                    lblInfo.setTextFill(Color.GREEN);
+                    lblInfo.setText("Saved Holiday request");
+                    populateStatusTable();
+                    populateAvailableDays();
+    
+                } 
+                else if (bookholiday == 2) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Neither Startdate nor Enddate can be \nin the past!");
+                } 
+                else if (bookholiday == 3) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Enddate cannot be before Startdate");
+                }
+    
+                else if (bookholiday == 4) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("No more available Days left!");
+                }
+    
+                else if (bookholiday == 5) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Booking request exceeds available Days!");
+                }
+            } else {
                 lblInfo.setTextFill(Color.YELLOW);
-                lblInfo.setText("Neither Startdate nor Enddate can be \nin the past!");
-            } 
-            else if (bookholiday == 3) {
-                lblInfo.setTextFill(Color.YELLOW);
-                lblInfo.setText("Enddate cannot be before Startdate");
+                lblInfo.setText("Please provide an Start and End date!"); 
             }
 
-            else if (bookholiday == 4) {
-                lblInfo.setTextFill(Color.YELLOW);
-                lblInfo.setText("No more available Days left!");
-            }
-
-            else if (bookholiday == 5) {
-                lblInfo.setTextFill(Color.YELLOW);
-                lblInfo.setText("Booking request exceeds available Days!");
-            }
         }
     }
 
     public void populateStatusTable() {
         this.userHolidays = holidayHandler.getHolidaysForUser(user);
         listDates.getItems().clear();
-        listStatus.getItems().clear();
+        //listStatus.getItems().clear();
 
         for (Holiday h : userHolidays) {
 
         
-            listDates.getItems().add(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\n" + "Total Days: " + Long.toString(h.getTotalDays()));
-            listStatus.getItems().addAll(h.getStatus() + "\n" + " ");
+            listDates.getItems().add(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\t\t\t\t" + h.getStatus() + "\n" + "Total Days: " + Long.toString(h.getTotalDays()));
+            //listStatus.getItems().addAll(h.getStatus() + "\n" + " ");
 
         }
 

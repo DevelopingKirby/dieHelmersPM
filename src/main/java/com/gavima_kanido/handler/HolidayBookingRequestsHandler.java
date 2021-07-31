@@ -14,11 +14,33 @@ public class HolidayBookingRequestsHandler {
         List<Holiday> employees = new ArrayList<Holiday>();
 
         try {
-            employees = DatabaseOperationUtil.getHolidaysForTeam(user);
+            employees = DatabaseOperationUtil.getOpenHolidaysForTeam(user);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return employees;
+    }
+
+    public int allowHolidayBooking(Holiday h) {
+        int dbOpSuccessful = 0;
+        try {
+            dbOpSuccessful = DatabaseOperationUtil.allowHolidayBooking(h.getUserRef(), h.getStartDate(), h.getEndDate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return dbOpSuccessful;
+    }
+
+    public int denyHolidayBooking(Holiday h) {
+        int dbOpSuccessful = 0;
+        try {
+            dbOpSuccessful = DatabaseOperationUtil.denyHolidayBooking(h.getUserRef(), h.getStartDate(), h.getEndDate(), (int) h.getTotalDays());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return dbOpSuccessful;
     }
 
 }
