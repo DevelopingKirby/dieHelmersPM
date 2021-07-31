@@ -78,11 +78,11 @@
         </rowConstraints>
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Teammembers" GridPane.columnIndex="1" />
-            <ComboBox fx:id="teamMembersComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <ComboBox fx:id="teamMembersComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
             <Label fx:id="lblTeamName" text="team_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending requests" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <MenuButton fx:id="requestsMenuButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <MenuButton fx:id="requestsMenuButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />

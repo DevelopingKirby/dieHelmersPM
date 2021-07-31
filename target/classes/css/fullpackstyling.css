@@ -190,40 +190,8 @@
     -fx-opacity: 1;
 }
 
-.emptyPane {
-    -fx-background-color: #ffffff;
-    -fx-border-width: 1px;
-    -fx-border-color: #000000;
-}
-
-.weekdayPane {
-    -fx-background-color: #2f5597;
-    -fx-border-width: 1px;
-    -fx-border-color: #000000;
-}
-
-.emptyPane:hover {
-    -fx-background-color: #FFD966;
-}
-
-.loginPane {
-    -fx-opacity:0;
-}
-
-.loginPane:hover {
-    -fx-opacity:1;
-}
-
-.loginPaneHide {
-    -fx-opacity:1;
-}
-
-.loginPaneHide:hover {
-    -fx-opacity:0;
-}
-
 .select {
-    
+    -fx-background-color: #ffffff;
 }
 
 .table-view .column-header .label{
