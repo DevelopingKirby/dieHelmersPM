@@ -64,7 +64,7 @@ public class CreateProjectController {
         }
         else if (event.getSource() == btn_save_project){
 
-            int creationSuccessful = createProjectHandler.createProject(project_name_input.getText(), customer_name_input.getText(), project_description_input.getText(), Integer.parseInt(project_budget_input.getText()));
+            int creationSuccessful = createProjectHandler.createProject(project_name_input.getText(), customer_name_input.getText(), project_description_input.getText(), project_budget_input.getText());
 
             if ( creationSuccessful == 2 ) {
                 lblInfo.setTextFill(Color.YELLOW);
