@@ -78,11 +78,11 @@
         </rowConstraints>
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Projects" GridPane.columnIndex="1" />
-            <ComboBox fx:id="projectsComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <ComboBox fx:id="projectsComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
             <Label fx:id="lblTeamName" text="team_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Employee to Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <MenuButton fx:id="employeeMenuButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <MenuButton fx:id="employeeMenuButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -94,7 +94,7 @@
                </GridPane.margin>
             </Button>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Informations" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="employeeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <ComboBox fx:id="employeeComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
             <Button fx:id="btnGetPersonaldata" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" text="Get Informations" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets left="25.0" />
