@@ -76,6 +76,11 @@ public class PersonalDataController {
 
     @FXML
     public void initialize(){
+
+
+        if (user.getPrivileges() == 2) {
+            btnTeams.setVisible(false);
+        }
         
         lblUserRef.setText(user.getUserRef());
         lblName.setText(user.getFirstName().substring(0, 1).toUpperCase() + user.getFirstName().substring(1) + " " + user.getName().substring(0, 1).toUpperCase() + user.getName().substring(1));
@@ -93,6 +98,7 @@ public class PersonalDataController {
     }
 
     public void setEmployeeData(User u) {
+
 
         User employee = u;
 
