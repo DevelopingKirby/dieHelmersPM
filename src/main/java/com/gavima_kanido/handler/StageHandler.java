@@ -1,6 +1,7 @@
 package com.gavima_kanido.handler;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.gavima_kanido.controller.*;
 import com.gavima_kanido.models.User;
@@ -23,12 +24,12 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
-    public static void changeToTimeTracker(Stage oldstage, Class actual_class) throws IOException
+    public static void changeToTimeOverview(Stage oldstage, Class actual_class) throws IOException
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerOverview.fxml"));   
-        loader.setController(new TimeTrackerOverviewController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeOverview.fxml"));   
+        loader.setController(new TimeOverviewController(stageUser));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }
@@ -53,12 +54,77 @@ public class StageHandler {
         stage.setScene(scene);
     }
 
-    public static void changeToProjects(Stage oldstage, Class actual_class) throws IOException
+    public static void changeToTrackProjects(Stage oldstage, Class actual_class) throws IOException
     {
         Stage stage = oldstage;
 
-        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TimeTrackerProjects.fxml"));   
-        loader.setController(new TimeTrackerProjectsController(stageUser));
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/TrackProjects.fxml"));   
+        loader.setController(new TrackProjectsController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToPersonalData(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/PersonalData.fxml"));   
+        loader.setController(new PersonalDataController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToEmployeeData(Stage oldstage, Class actual_class, User user) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/PersonalData.fxml"));
+        PersonalDataController ctrData = new PersonalDataController(stageUser);
+        loader.setController(ctrData);
+        Scene scene = new Scene((Parent) loader.load());
+        ctrData.setEmployeeData(user);
+        stage.setScene(scene);
+    }
+
+    public static void changeToLoggedOut(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/LoggedOut.fxml"));
+        LoggedOutController ctrLogOut = new LoggedOutController();
+        loader.setController(ctrLogOut);
+        Scene scene = new Scene((Parent) loader.load());
+        ctrLogOut.setStage(stage);
+        stage.setScene(scene);
+        ctrLogOut.logOut();
+    }
+
+    public static void changeToCreateProject(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/CreateProject.fxml"));   
+        loader.setController(new CreateProjectController(stageUser));
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToLogIn(Stage oldstage, Class actual_class) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/Login.fxml"));   
+        loader.setController(new LoginController());
+        Scene scene = new Scene((Parent) loader.load());
+        stage.setScene(scene);
+    }
+
+    public static void changeToHolidayBookingRequest(Stage oldstage, Class actual_class, List<User> employees) throws IOException
+    {
+        Stage stage = oldstage;
+
+        FXMLLoader loader = new FXMLLoader(actual_class.getResource("/fxml/HolidayBookingRequests.fxml"));   
+        loader.setController(new HolidayBookingRequestsController(stageUser, employees));
         Scene scene = new Scene((Parent) loader.load());
         stage.setScene(scene);
     }

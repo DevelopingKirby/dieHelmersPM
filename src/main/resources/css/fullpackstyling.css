@@ -1,3 +1,4 @@
+
 .button
 {
 -fx-background-color :none;
@@ -47,6 +48,22 @@
     -fx-border-width : 2px;
     -fx-border-radius : 15px;
     -fx-background-radius: 15px;
+}
+
+.btnTopMenu {
+    -fx-background-color : #595959;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius :0px;
+    -fx-background-radius: none;
+}
+
+.btnTopMenu:hover {
+    -fx-background-color : #2E75B6;
+    -fx-border-color: none;
+    -fx-border-width : none;
+    -fx-border-radius :0px;
+    -fx-background-radius: none;
 }
 
 .button#btnSignin:hover {
@@ -136,6 +153,21 @@
     -fx-opacity: 1;
 }
 
+.emptyPane {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1px;
+    -fx-border-color: #000000;
+}
+
+.weekdayPane {
+    -fx-background-color: #2f5597;
+    -fx-border-width: 1px;
+    -fx-border-color: #000000;
+}
+
+.emptyPane:hover {
+    -fx-background-color: #FFD966;
+}
 
 .table-view .column-header .label{
 
