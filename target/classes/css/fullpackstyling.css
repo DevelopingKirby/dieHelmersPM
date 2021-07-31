@@ -32,7 +32,7 @@
 }
 .button2:hover
 {
--fx-background-color : #0C3988 ;
+-fx-background-color : #203864 ;
 -fx-text-fill:   #ffffff;
 }
 .button2:pressed
@@ -42,7 +42,7 @@
 }
 
 .button#btnSignin {
-    -fx-background-color : #404040;
+    -fx-background-color : none;
     -fx-text-fill:  #BDD7EE;
     -fx-border-color: #BDD7EE;
     -fx-border-width : 2px;
@@ -128,7 +128,44 @@
     -fx-border-width : 2px;
     -fx-border-radius : 50%;
     -fx-background-radius: 15px;
+}
 
+.play:hover {
+    -fx-background-color : #8ddb91;
+    -fx-border-color: none;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
+}
+
+.more{
+    -fx-background-color : none;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
+}
+
+.more:hover {
+    -fx-background-color : #2F5597;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
+}
+
+.stop {
+    -fx-background-color :none;
+    -fx-border-color: none;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
+}
+
+.stop:hover {
+    -fx-background-color: #d17f98;
+    -fx-border-color: none;
+    -fx-border-width : 2px;
+    -fx-border-radius : 50%;
+    -fx-background-radius: 15px;
 }
 
 .txtField {
@@ -153,20 +190,8 @@
     -fx-opacity: 1;
 }
 
-.emptyPane {
+.select {
     -fx-background-color: #ffffff;
-    -fx-border-width: 1px;
-    -fx-border-color: #000000;
-}
-
-.weekdayPane {
-    -fx-background-color: #2f5597;
-    -fx-border-width: 1px;
-    -fx-border-color: #000000;
-}
-
-.emptyPane:hover {
-    -fx-background-color: #FFD966;
 }
 
 .table-view .column-header .label{

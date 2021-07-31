@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="color:#ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" style="color:#ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -48,13 +48,13 @@
       </AnchorPane>
       <AnchorPane fx:id="ap" layoutY="30.0" style="-fx-background-color: #203864;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
-            <GridPane layoutX="-2.0" layoutY="-2.0" prefHeight="378.0" prefWidth="606.0">
+            <GridPane layoutX="-2.0" layoutY="-2.0" prefHeight="475.0" prefWidth="854.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="192.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="186.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="233.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="217.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="You're logged out." GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">

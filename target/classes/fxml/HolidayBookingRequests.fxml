@@ -15,20 +15,20 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="color: #ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" style="color: #ffffff;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="30.0" prefWidth="854.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="367.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <GridPane prefHeight="30.0" prefWidth="596.0">
+                        <GridPane prefHeight="30.0" prefWidth="854.0">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="209.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="259.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="177.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="168.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -39,11 +39,11 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Text>
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="25.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="176.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
                               <Label fx:id="lblUserRef" text="userRef" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="21.0" fitWidth="25.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
@@ -61,36 +61,36 @@
             </HBox>
          </children>
       </AnchorPane>
-      <GridPane layoutX="-3.0" layoutY="30.0" prefHeight="372.0" prefWidth="606.0" style="-fx-background-color: #404040;">
+      <GridPane layoutX="-3.0" layoutY="30.0" prefHeight="473.0" prefWidth="858.0" style="-fx-background-color: #404040;">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="22.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="216.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="343.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="63.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="348.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="366.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="57.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Teammembers" GridPane.columnIndex="1" />
-            <ComboBox fx:id="teamMembersComboBox" onAction="#comboAction" prefHeight="25.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <ComboBox fx:id="teamMembersComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Team" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
             <Label fx:id="lblTeamName" text="team_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending requests" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <MenuButton fx:id="requestsMenuButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="301.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <MenuButton fx:id="requestsMenuButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0" styleClass="select" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
-            <Button fx:id="btnAllow" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="29.0" prefWidth="103.0" styleClass="btnBlue" text="Allow" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <Button fx:id="btnAllow" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="115.0" styleClass="btnBlue" text="Allow" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="25.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
             <Label fx:id="lblInfo" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
@@ -98,9 +98,9 @@
                   <Insets bottom="5.0" left="40.0" />
                </GridPane.margin>
             </Label>
-            <Button fx:id="btnDeny" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="29.0" prefWidth="103.0" text="Deny" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BASELINE">
+            <Button fx:id="btnDeny" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="115.0" text="Deny" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="150.0" />
+                  <Insets left="15.0" />
                </GridPane.margin>
             </Button>
          </children>

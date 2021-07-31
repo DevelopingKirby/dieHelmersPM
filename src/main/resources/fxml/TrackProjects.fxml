@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="color: #404040;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" style="color: #404040;" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane prefHeight="30.0" prefWidth="854.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="854.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="13.0" style="-fx-background-color: #595959;" HBox.hgrow="ALWAYS">
                      <children>
@@ -30,7 +30,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="367.0" style="-fx-background-color: #595959;" HBox.hgrow="ALWAYS">
                      <children>
-                        <GridPane prefHeight="30.0" prefWidth="432.0" style="color: #ffffff;">
+                        <GridPane prefHeight="30.0" prefWidth="542.0" style="color: #ffffff;">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="142.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.0" minWidth="10.0" prefWidth="133.0" />
@@ -41,11 +41,11 @@
                           </rowConstraints>
                            <children>
                               <Label fx:id="lblUserRef" text="user_name" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Button fx:id="topmenu_overview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Overview" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="132.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Button fx:id="topmenu_overview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="175.0" styleClass="btnTopMenu" text="Overview" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Button fx:id="topmenu_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="33.0" prefWidth="167.0" styleClass="btnTopMenu" text="Dashboard" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
-                        <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#handleButtonAction" styleClass="btnTopMenu">
+                        <Button fx:id="btnLogout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="43.0" styleClass="btnTopMenu">
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="25.0" fitWidth="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                                  <image>
@@ -63,12 +63,12 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="37.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+      <AnchorPane layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
          <children>
-            <GridPane layoutX="-3.0" layoutY="-7.0" prefHeight="370.0" prefWidth="607.0" style="-fx-background-color: #404040;">
+            <GridPane layoutX="-3.0" layoutY="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="858.0" style="-fx-background-color: #404040;">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="0.0" prefWidth="23.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="168.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="276.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="234.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="156.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="23.0" />
@@ -86,7 +86,7 @@
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Projects" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                   <Label fx:id="totalTimeSpent" textFill="#fcf3f3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <Button fx:id="startTime" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="startTime" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="26.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView fx:id="startProject" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="39.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -97,7 +97,7 @@
                      <opaqueInsets>
                         <Insets left="25.0" />
                      </opaqueInsets></Button>
-                  <Button fx:id="stopTime" layoutX="169.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="stopTime" layoutX="169.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="26.0" styleClass="stop" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView accessibleRole="BUTTON" fitHeight="60.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -110,7 +110,7 @@
                      </GridPane.margin>
                   </Button>
                   <Button id="btnManagersView" fx:id="btn_create_project" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Create Project" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  <ComboBox fx:id="comboBoxProject" onAction="#comboAction" prefWidth="150.0" promptText="Select Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboBoxProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="250.0" promptText="Select Project" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
