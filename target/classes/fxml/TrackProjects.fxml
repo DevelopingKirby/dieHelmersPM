@@ -86,7 +86,7 @@
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Projects" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                   <Label fx:id="totalTimeSpent" textFill="#fcf3f3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <Button fx:id="startTime" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="startTime" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="26.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView fx:id="startProject" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="39.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -97,7 +97,7 @@
                      <opaqueInsets>
                         <Insets left="25.0" />
                      </opaqueInsets></Button>
-                  <Button fx:id="stopTime" layoutX="169.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="50.0" prefWidth="50.0" styleClass="play" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Button fx:id="stopTime" layoutX="169.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="26.0" styleClass="stop" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <graphic>
                         <ImageView accessibleRole="BUTTON" fitHeight="60.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
@@ -110,7 +110,7 @@
                      </GridPane.margin>
                   </Button>
                   <Button id="btnManagersView" fx:id="btn_create_project" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="26.0" prefWidth="138.0" styleClass="btnBlue" text="Create Project" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  <ComboBox fx:id="comboBoxProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="250.0" promptText="Select Project" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboBoxProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboAction" prefHeight="26.0" prefWidth="250.0" promptText="Select Project" styleClass="select" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
