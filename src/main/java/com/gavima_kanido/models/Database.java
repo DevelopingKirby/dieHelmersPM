@@ -2,10 +2,10 @@ package com.gavima_kanido.models;
 
 import java.sql.Connection;
 
-import com.gavima_kanido.interfaces.DatabaseInterface;
+
 import com.gavima_kanido.utils.ConnectionUtil;
 
-public class Database implements DatabaseInterface {
+public class Database {
 
     private Connection dbcon; 
 
@@ -13,7 +13,7 @@ public class Database implements DatabaseInterface {
         this.dbcon = ConnectionUtil.getConnection();
     }
 
-    @Override
+
     public Connection getDB() {
         return this.dbcon;
     }

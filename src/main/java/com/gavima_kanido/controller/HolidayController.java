@@ -2,120 +2,38 @@ package com.gavima_kanido.controller;
 
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.gavima_kanido.handler.HolidayHandler;
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.models.Holiday;
 import com.gavima_kanido.models.User;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.ListView;
+import javafx.scene.paint.Color;
 
 
 public class HolidayController {
 
     private User user;
+    private List<Holiday> userHolidays = new ArrayList<Holiday>();
+    private int availableDaysLeft;
+    private HolidayHandler holidayHandler = new HolidayHandler();
 
-    public HolidayController(User user) {
+    public HolidayController (User user) {
         this.user = user;
+
     }
 
     @FXML
-    private Pane pane1;
-
-    @FXML
-    private Pane pane2;
-
-    @FXML
-    private Pane pane3;
-
-    @FXML
-    private Pane pane4;
-
-    @FXML
-    private Pane pane5;
-
-    @FXML
-    private Pane pane6;
-
-    @FXML
-    private Pane pane7;
-
-    @FXML
-    private Pane pane8;
-
-    @FXML
-    private Pane pane9;
-
-    @FXML
-    private Pane pane10;
-
-    @FXML
-    private Pane pane11;
-
-    @FXML
-    private Pane pane12;
-
-    @FXML
-    private Pane pane13;
-
-    @FXML
-    private Pane pane14;
-
-    @FXML
-    private Pane pane15;
-
-    @FXML
-    private Pane pane16;
-
-    @FXML
-    private Pane pane17;
-
-    @FXML
-    private Pane pane18;
-
-    @FXML
-    private Pane pane19;
-
-    @FXML
-    private Pane pane20;
-
-    @FXML
-    private Pane pane21;
-
-    @FXML
-    private Pane pane22;
-
-    @FXML
-    private Pane pane23;
-
-    @FXML
-    private Pane pane24;
-
-    @FXML
-    private Pane pane25;
-
-    @FXML
-    private Pane pane26;
-
-    @FXML
-    private Pane pane27;
-
-    @FXML
-    private Pane pane28;
+    private Label lblUserRef;
 
     @FXML
     private Button topmenu_dashboard;
@@ -124,19 +42,25 @@ public class HolidayController {
     private Button btnLogout;
 
     @FXML
-    private Label end_month_day_year;
+    private Label lblInfo;
 
     @FXML
-    private Label start_month_day_year;
+    private ListView<String> listDates;
 
     @FXML
-    private Button book_holiday;
+    private Button btnBookHoliday;
 
     @FXML
-    private ChoiceBox<?> pick_month;
-    
+    private DatePicker datePickerEndDate;
+
     @FXML
-    private Label lblUserRef;
+    private DatePicker datePickerStartDate;
+
+    // @FXML
+    // private ListView<String> listStatus;
+
+    @FXML
+    private Label lblAvailableDays;
 
     @FXML
     void handleButtonAction(MouseEvent event) throws IOException {
@@ -146,11 +70,69 @@ public class HolidayController {
         else if (event.getSource() == btnLogout) {
             StageHandler.changeToLoggedOut((Stage) btnLogout.getScene().getWindow(), getClass());
         }
+
+        else if (event.getSource() == btnBookHoliday) {
+
+            if (datePickerStartDate.getValue() != null && datePickerEndDate.getValue() != null) {
+                int bookholiday = holidayHandler.bookHoliday(user.getUserRef(), datePickerStartDate.getValue(), datePickerEndDate.getValue());
+
+                if (bookholiday == 1) {
+                    lblInfo.setTextFill(Color.GREEN);
+                    lblInfo.setText("Saved Holiday request");
+                    populateStatusTable();
+                    populateAvailableDays();
+    
+                } 
+                else if (bookholiday == 2) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Neither Startdate nor Enddate can be \nin the past!");
+                } 
+                else if (bookholiday == 3) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Enddate cannot be before Startdate");
+                }
+    
+                else if (bookholiday == 4) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("No more available Days left!");
+                }
+    
+                else if (bookholiday == 5) {
+                    lblInfo.setTextFill(Color.YELLOW);
+                    lblInfo.setText("Booking request exceeds available Days!");
+                }
+            } else {
+                lblInfo.setTextFill(Color.YELLOW);
+                lblInfo.setText("Please provide an Start and End date!"); 
+            }
+
+        }
+    }
+
+    public void populateStatusTable() {
+        this.userHolidays = holidayHandler.getHolidaysForUser(user);
+        listDates.getItems().clear();
+        //listStatus.getItems().clear();
+
+        for (Holiday h : userHolidays) {
+
+        
+            listDates.getItems().add(h.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + h.getEndDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "\t\t\t\t" + h.getStatus() + "\n" + "Total Days: " + Long.toString(h.getTotalDays()));
+            //listStatus.getItems().addAll(h.getStatus() + "\n" + " ");
+
+        }
+
+    }
+
+    public void populateAvailableDays() {
+        this.availableDaysLeft = holidayHandler.getAvailableHolidays(user);        
+        lblAvailableDays.setText(Integer.toString(availableDaysLeft));
     }
 
     @FXML
     public void initialize(){
-        
+        populateStatusTable();
+        populateAvailableDays();
         lblUserRef.setText(user.getUserRef());
     }
 

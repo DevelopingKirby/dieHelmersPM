@@ -1,23 +1,32 @@
 package com.gavima_kanido.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.gavima_kanido.handler.StageHandler;
+import com.gavima_kanido.handler.TimeOverviewHandler;
+import com.gavima_kanido.models.Project;
 import com.gavima_kanido.models.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class TimeOverviewController {
 
     private User user;
+    private List<Project> userProjects = new ArrayList<Project>();
+    private TimeOverviewHandler timeOverwiewHandler = new TimeOverviewHandler();
+    
 
     public TimeOverviewController(User user) {
         this.user = user;
+        this.userProjects = timeOverwiewHandler.getProjects(user);
+        
     }
 
     @FXML
@@ -30,10 +39,19 @@ public class TimeOverviewController {
     private Button btnLogout;
 
     @FXML
-    private Button btnTTExport;
+    private Label lblUserRef;
 
     @FXML
-    private Label lblUserRef;
+    private Label lblHoursSum;
+
+    @FXML
+    private ListView<String> listProjects;
+
+    @FXML
+    private ListView<String> listCustomers;
+
+    @FXML
+    private ListView<String> listHoursSpend;
 
 
     @FXML
@@ -50,9 +68,34 @@ public class TimeOverviewController {
         }
     }
 
+    public void populateProjectsTable() {
+
+        for (Project p : userProjects) {
+            listProjects.getItems().add(p.getName());
+        }
+    }
+
+    public void populateProjectsCustomerTable() {
+
+        for (Project p : userProjects) {
+            listCustomers.getItems().add(p.getCustomer());
+        }
+    }
+    public void populateHoursSpendTable() {
+
+        for (Project p : userProjects) {
+            listHoursSpend.getItems().add(timeOverwiewHandler.getHoursWorkedOnProject(user, p));
+        }
+    }
+
+
+
     @FXML
     public void initialize(){
-        
+        populateProjectsTable();
+        populateProjectsCustomerTable();
+        populateHoursSpendTable();
+        lblHoursSum.setText(String.valueOf(timeOverwiewHandler.calcTotalHours(userProjects, user)));
         lblUserRef.setText(user.getUserRef());
     }
 }
