@@ -10,7 +10,7 @@ public class ConnectionUtil {
         final String PASSWORD = "AT3v9IzCP05Yysjo";
         
         try {
-            //Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(CONNSTRING, USER, PASSWORD);            
             return conn;
         } catch (SQLException | ClassNotFoundException ex) {
