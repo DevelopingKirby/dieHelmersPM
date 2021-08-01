@@ -10,9 +10,10 @@ public class ConnectionUtil {
         final String PASSWORD = "AT3v9IzCP05Yysjo";
         
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(CONNSTRING, USER, PASSWORD);            
             return conn;
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
 
             System.err.println("ConnectionUtil : "+ex.getMessage());
             return null;
